@@ -28,7 +28,6 @@ class ProgressUpdater:
     """Handles all README.md progress updates"""
     
     # Module information
-    TOTAL_MODULES = 14
     MODULE_NAMES = {
         1: "Hello World",
         2: "Control Flow",
@@ -44,7 +43,7 @@ class ProgressUpdater:
         12: "Code Challenges II",
         13: "Next Steps"
     }
-    
+    TOTAL_MODULES = len(MODULE_NAMES)
     # Status emojis
     STATUS_ICONS = {
         "not_started": "🔴 Not Started",
