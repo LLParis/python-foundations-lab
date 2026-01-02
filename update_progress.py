@@ -57,7 +57,7 @@ class ProgressUpdater:
         if not self.readme_path.exists():
             raise FileNotFoundError(f"README.md not found at {self.readme_path}")
         
-        self.readme_content = self.readme_path.read_text()
+        self.readme_content = self.readme_path.read_text(encoding="utf-8")
         self.backup_path = self.readme_path.with_suffix('.md.backup')
         
     def backup(self):
