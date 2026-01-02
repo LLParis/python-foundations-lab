@@ -100,11 +100,11 @@ This repository documents my journey through **Python 3.12 fundamentals** via Co
 **Learn Python 3.12** — One of the most powerful, versatile, and in-demand programming languages today.
 
 <!-- Progress bar -->
-<img src="https://geps.dev/progress/3?dangerColor=FF6B6B&warningColor=FFB800&successColor=22C55E" width="600"/>
+<img src="https://geps.dev/progress/0?dangerColor=FF6B6B&warningColor=FFB800&successColor=22C55E" width="600"/>
 
 <br/><br/>
 
-**3% Complete** • **0/13 Modules** • **0 Commits** • **Building Momentum**
+**0% Complete** • **0/13 Modules** • **0 Commits** • **Just Getting Started**
 
 </div>
 
