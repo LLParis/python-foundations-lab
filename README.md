@@ -13,7 +13,7 @@
 <!-- Status badges -->
 <p>
   <img src="https://img.shields.io/badge/COURSE-Codecademy_Python_3-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=0b1220"/>
-  <img src="https://img.shields.io/badge/PROGRESS-0%25_Complete-FFB800?style=for-the-badge&labelColor=0b1220"/>
+  <img src="https://img.shields.io/badge/PROGRESS-3%25_Complete-FFB800?style=for-the-badge&labelColor=0b1220"/>
   <img src="https://img.shields.io/badge/STATUS-🟡_ACTIVE-22C55E?style=for-the-badge&labelColor=0b1220"/>
   <img src="https://img.shields.io/badge/TARGET-UW_GRAIL_Caliber-00E5FF?style=for-the-badge&labelColor=0b1220"/>
 </p>
@@ -98,11 +98,11 @@ This repository documents my journey through **Python 3.12 fundamentals** via Co
 **Learn Python 3.12** — One of the most powerful, versatile, and in-demand programming languages today.
 
 <!-- Progress bar -->
-<img src="https://geps.dev/progress/0?dangerColor=FF6B6B&warningColor=FFB800&successColor=22C55E" width="600"/>
+<img src="https://geps.dev/progress/3?dangerColor=FF6B6B&warningColor=FFB800&successColor=22C55E" width="600"/>
 
 <br/><br/>
 
-**0% Complete** • **0/14 Modules** • **0 Commits** • **Just Getting Started**
+**3% Complete** • **0/13 Modules** • **0 Commits** • **Building Momentum**
 
 </div>
 
@@ -145,7 +145,7 @@ graph LR
 
 | # | Module | Lessons | Quizzes | Projects | Articles | Status |
 |---|--------|---------|---------|----------|----------|--------|
-| 1 | **Hello World** | 1 | 1 | 2 | 2 | 🔴 Not Started |
+| 1 | **Hello World** | 1 | 1 | 2 | 2 | 🟡 In Progress |
 | 2 | **Control Flow** | 2 | 1 | 2 | 1 | ⬜ Locked |
 | 3 | **Lists** | 2 | 2 | 2 | 2 | ⬜ Locked |
 | 4 | **Loops** | 1 | 1 | 1 | 0 | ⬜ Locked |
@@ -217,7 +217,7 @@ articles:
 
 <div align="center">
 
-**Progress:** 0/14 concepts practiced
+**Progress:** Lesson ✅ • Quiz ✅ • Practice 0/14 • Projects ⬜⬜
 
 <br/>
 
