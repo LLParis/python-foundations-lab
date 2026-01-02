@@ -62,7 +62,7 @@ class ProgressUpdater:
         
     def backup(self):
         """Create a backup of current README"""
-        self.backup_path.write_text(self.readme_content)
+        self.backup_path.write_text(self.readme_content, encoding="utf-8")
         print(f"✅ Backup created: {self.backup_path}")
     
     def count_completed_modules(self) -> int:
@@ -227,14 +227,14 @@ class ProgressUpdater:
         if create_backup:
             self.backup()
         
-        self.readme_path.write_text(self.readme_content)
+        self.readme_path.write_text(self.readme_content, encoding="utf-8")
         print(f"\n✨ README.md updated successfully!")
         print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     def restore_backup(self):
         """Restore from backup"""
         if self.backup_path.exists():
-            self.readme_content = self.backup_path.read_text()
+            self.readme_content = self.backup_path.read_text(encoding="utf-8")
             self.save(create_backup=False)
             print("♻️  Restored from backup")
         else:
