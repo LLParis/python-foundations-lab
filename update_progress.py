@@ -54,6 +54,7 @@ class ProgressUpdater:
     
     def __init__(self, readme_path: str = "README.md"):
         self.readme_path = Path(readme_path)
+
         if not self.readme_path.exists():
             raise FileNotFoundError(f"README.md not found at {self.readme_path}")
         
