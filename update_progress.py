@@ -17,6 +17,7 @@ Usage:
     python update_progress.py --complete 3 --start 4 --commits 32
 """
 
+from email import parser
 import re
 import argparse
 from pathlib import Path
@@ -302,6 +303,10 @@ Examples:
                         help='Skip creating backup')
     parser.add_argument('--restore', action='store_true',
                         help='Restore from backup')
+    parser.add_argument('--phase', type=str, help='Set bottom STATUS Current Phase line')
+    parser.add_argument('--milestone', type=str, help='Set bottom STATUS Next Milestone line')
+    parser.add_argument('--target', type=str, help='Set bottom STATUS Target line')
+
 
     args = parser.parse_args()
 
@@ -334,7 +339,9 @@ Examples:
         date_range = args.date_range or datetime.now().strftime("%B %d, %Y")
         updater.add_weekly_log_entry(args.weekly, date_range)
         updated = True
-
+    if args.phase or args.milestone or args.target:
+        updater.update_status_block(args.phase, args.milestone, args.target)
+        updated = True
     if args.refresh or updated:
         updater.update_progress_bar(percent=args.percent)
         updater.update_stats_line(percent=args.percent)
@@ -350,3 +357,37 @@ Examples:
 
 if __name__ == "__main__":
     main()
+
+def update_status_block(
+    self,
+    phase: Optional[str] = None,
+    milestone: Optional[str] = None,
+    target: Optional[str] = None,
+):
+    """Update the bottom STATUS block lines (Current Phase / Next Milestone / Target)."""
+    if phase:
+        self.readme_content = re.sub(
+            r'(\*\*Current Phase:\*\*\s*).*$',
+            rf'\1{phase}',
+            self.readme_content,
+            flags=re.MULTILINE,
+        )
+
+    if milestone:
+        self.readme_content = re.sub(
+            r'(\*\*Next Milestone:\*\*\s*).*$',
+            rf'\1{milestone}',
+            self.readme_content,
+            flags=re.MULTILINE,
+        )
+
+    if target:
+        self.readme_content = re.sub(
+            r'(\*\*Target:\*\*\s*).*$',
+            rf'\1{target}',
+            self.readme_content,
+            flags=re.MULTILINE,
+        )
+
+    print("🚀 Status block updated")
+
