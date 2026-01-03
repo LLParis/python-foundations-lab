@@ -60,7 +60,19 @@ class ProgressUpdater:
         
         self.readme_content = self.readme_path.read_text(encoding="utf-8")
         self.backup_path = self.readme_path.with_suffix('.md.backup')
-        
+
+    def get_current_percent(self) -> int:
+        """Read the current percent already in README (keeps Codecademy % stable)."""
+        m = re.search(r'https://geps\.dev/progress/(\d+)', self.readme_content)
+        if m:
+            return int(m.group(1))
+
+        m = re.search(r'PROGRESS-(\d+)%25_Complete', self.readme_content)
+        if m:
+            return int(m.group(1))
+
+        return 0
+    
     def backup(self):
         """Create a backup of current README"""
         self.backup_path.write_text(self.readme_content, encoding="utf-8")
@@ -72,57 +84,64 @@ class ProgressUpdater:
         matches = re.findall(pattern, self.readme_content)
         return len(matches)
     
-    def update_progress_bar(self, completed: Optional[int] = None):
-        """Update the progress bar percentage"""
-        if completed is None:
-            completed = self.count_completed_modules()
-            
-        percentage = int((completed / self.TOTAL_MODULES) * 100)
-        
-        # Update progress bar URL
+    def update_progress_bar(self, percent: Optional[int] = None):
+        """
+        Update the progress bar percentage.
+        If percent is None, DO NOT change it (keeps your manual/Codecademy number).
+        """
+        if percent is None:
+            percent = self.get_current_percent()
+
         pattern = r'https://geps\.dev/progress/\d+'
-        replacement = f'https://geps.dev/progress/{percentage}'
+        replacement = f'https://geps.dev/progress/{percent}'
         self.readme_content = re.sub(pattern, replacement, self.readme_content)
-        
-        print(f"📊 Progress bar updated: {percentage}%")
-        return percentage
+
+        # Also update the top PROGRESS badge
+        badge_pattern = r'https://img\.shields\.io/badge/PROGRESS-\d+%25_Complete'
+        badge_replacement = f'https://img.shields.io/badge/PROGRESS-{percent}%25_Complete'
+        self.readme_content = re.sub(badge_pattern, badge_replacement, self.readme_content)
+
+        print(f"📊 Progress bar updated: {percent}%")
+        return percent
+
     
-    def update_stats_line(self, modules: Optional[int] = None, 
-                         commits: Optional[int] = None, 
-                         status: Optional[str] = None):
-        """Update the completion statistics line"""
+    def update_stats_line(
+        self,
+        modules: Optional[int] = None,
+        commits: Optional[int] = None,
+        status: Optional[str] = None,
+        percent: Optional[int] = None,
+    ):
         if modules is None:
             modules = self.count_completed_modules()
-        
-        percentage = int((modules / self.TOTAL_MODULES) * 100)
-        
-        # Generate status message based on progress
+
+        if percent is None:
+            percent = self.get_current_percent()
+
         if status is None:
-            if percentage == 0:
+            if percent == 0:
                 status = "Just Getting Started"
-            elif percentage < 15:
+            elif percent < 15:
                 status = "Building Momentum"
-            elif percentage < 50:
+            elif percent < 50:
                 status = "Making Strong Progress"
-            elif percentage < 75:
+            elif percent < 75:
                 status = "Over Halfway There"
-            elif percentage < 100:
+            elif percent < 100:
                 status = "Final Sprint"
             else:
                 status = "Course Complete! 🎉"
-        
-        # Find and update the stats line
-        pattern = r'\*\*\d+% Complete\*\* • \*\*\d+/\d+ Modules\*\* • \*\*\d+ Commits\*\* • \*\*.*?\*\*'
-        
-        # Get current commit count if not specified
+
         if commits is None:
             match = re.search(r'\*\*(\d+) Commits\*\*', self.readme_content)
             commits = int(match.group(1)) if match else 0
-        
-        replacement = f'**{percentage}% Complete** • **{modules}/{self.TOTAL_MODULES} Modules** • **{commits} Commits** • **{status}**'
+
+        pattern = r'\*\*\d+% Complete\*\* • \*\*\d+/\d+ Modules\*\* • \*\*\d+ Commits\*\* • \*\*.*?\*\*'
+        replacement = f'**{percent}% Complete** • **{modules}/{self.TOTAL_MODULES} Modules** • **{commits} Commits** • **{status}**'
         self.readme_content = re.sub(pattern, replacement, self.readme_content)
-        
-        print(f"📈 Stats updated: {percentage}% | {modules}/{self.TOTAL_MODULES} modules | {commits} commits")
+
+        print(f"📈 Stats updated: {percent}% | {modules}/{self.TOTAL_MODULES} modules | {commits} commits")
+
     
     def update_module_status(self, module_num: int, status: str):
         """
@@ -248,91 +267,85 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Complete module 1 and start module 2
-  python update_progress.py --complete 1 --start 2
-  
+  # Complete module 1 and start module 2 (keep percent at 9)
+  python update_progress.py --complete 1 --start 2 --percent 9 --refresh
+
   # Update commit count
   python update_progress.py --commits 45
-  
+
   # Add a weekly log entry
-  python update_progress.py --weekly 3 "January 15-21, 2026"
-  
-  # Just refresh all stats
+  python update_progress.py --weekly 3 --date-range "January 15-21, 2026"
+
+  # Just refresh all stats (keeps current README percent)
   python update_progress.py --refresh
         """
     )
-    
+
+    parser.add_argument('--percent', type=int, metavar='N',
+                        help='Set README percent (e.g., Codecademy percent)')
+
     parser.add_argument('--complete', type=int, metavar='N',
-                       help='Mark module N as complete')
+                        help='Mark module N as complete')
     parser.add_argument('--start', type=int, metavar='N',
-                       help='Mark module N as in progress')
+                        help='Mark module N as in progress')
     parser.add_argument('--commits', type=int, metavar='N',
-                       help='Set total commit count to N')
+                        help='Set total commit count to N')
     parser.add_argument('--increment-commits', type=int, metavar='N', default=0,
-                       help='Increment commit count by N')
+                        help='Increment commit count by N')
     parser.add_argument('--weekly', type=int, metavar='N',
-                       help='Add weekly log entry for week N')
+                        help='Add weekly log entry for week N')
     parser.add_argument('--date-range', type=str,
-                       help='Date range for weekly log (e.g., "Jan 15-21, 2026")')
+                        help='Date range for weekly log (e.g., "Jan 15-21, 2026")')
     parser.add_argument('--refresh', action='store_true',
-                       help='Refresh all calculated stats')
+                        help='Refresh all calculated stats')
     parser.add_argument('--no-backup', action='store_true',
-                       help='Skip creating backup')
+                        help='Skip creating backup')
     parser.add_argument('--restore', action='store_true',
-                       help='Restore from backup')
-    
+                        help='Restore from backup')
+
     args = parser.parse_args()
-    
-    # Initialize updater
+
     updater = ProgressUpdater()
-    
-    # Handle restore
+
     if args.restore:
         updater.restore_backup()
         return
-    
-    # Track if any updates were made
+
     updated = False
-    
-    # Complete module
+
     if args.complete:
         updater.complete_module(args.complete)
         updated = True
-    
-    # Start module
+
     if args.start:
         updater.start_module(args.start)
         updater.update_current_module_section(args.start)
         updated = True
-    
-    # Update commits
-    if args.commits:
+
+    if args.commits is not None:
         updater.update_stats_line(commits=args.commits)
         updated = True
-    
-    # Increment commits
+
     if args.increment_commits:
         updater.increment_commits(args.increment_commits)
         updated = True
-    
-    # Add weekly log
+
     if args.weekly:
         date_range = args.date_range or datetime.now().strftime("%B %d, %Y")
         updater.add_weekly_log_entry(args.weekly, date_range)
         updated = True
-    
-    # Refresh stats
+
     if args.refresh or updated:
-        updater.update_progress_bar()
-        updater.update_stats_line()
+        updater.update_progress_bar(percent=args.percent)
+        updater.update_stats_line(percent=args.percent)
         updated = True
-    
-    # Save if updates were made
+
     if updated:
         updater.save(create_backup=not args.no_backup)
     else:
         print("ℹ️  No updates specified. Use --help for usage information.")
         parser.print_help()
+
 
 
 if __name__ == "__main__":
