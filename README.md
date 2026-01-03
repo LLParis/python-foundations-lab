@@ -15,7 +15,7 @@
 <!-- Status badges -->
 <p>
   <img src="https://img.shields.io/badge/COURSE-Codecademy_Python_3-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=0b1220"/>
-  <img src="https://img.shields.io/badge/PROGRESS-3%25_Complete-FFB800?style=for-the-badge&labelColor=0b1220"/>
+  <img src="https://img.shields.io/badge/PROGRESS-9%25_Complete-FFB800?style=for-the-badge&labelColor=0b1220"/>
   <img src="https://img.shields.io/badge/STATUS-🟡_ACTIVE-22C55E?style=for-the-badge&labelColor=0b1220"/>
   <img src="https://img.shields.io/badge/TARGET-UW_GRAIL_Caliber-00E5FF?style=for-the-badge&labelColor=0b1220"/>
 </p>
