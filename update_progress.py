@@ -17,7 +17,6 @@ Usage:
     python update_progress.py --complete 3 --start 4 --commits 32
 """
 
-from email import parser
 import re
 import argparse
 from pathlib import Path
@@ -242,7 +241,31 @@ class ProgressUpdater:
             print(f"📅 Added Week {week_num} log entry template")
         else:
             print("⚠️  Could not find Weekly Progress Log section")
-    
+    def update_status_block(
+        self,
+        phase: Optional[str] = None,
+        milestone: Optional[str] = None,
+        target: Optional[str] = None,
+            ):
+        """Update the bottom STATUS block lines (Current Phase / Next Milestone / Target)."""
+
+    def replace_line(label: str, value: str):
+        # Matches either:
+        # **Current Phase:** blah
+        # Current Phase: blah
+        pattern = rf'^(?:\*\*)?{re.escape(label)}:(?:\*\*)?\s*.*$'
+        replacement = f'**{label}:** {value}'
+        self.readme_content = re.sub(pattern, replacement, self.readme_content, flags=re.MULTILINE)
+
+    if phase:
+        replace_line("Current Phase", phase)
+    if milestone:
+        replace_line("Next Milestone", milestone)
+    if target:
+        replace_line("Target", target)
+
+    print("🚀 Status block updated")
+
     def save(self, create_backup: bool = True):
         """Save the updated README"""
         if create_backup:
@@ -357,37 +380,3 @@ Examples:
 
 if __name__ == "__main__":
     main()
-
-def update_status_block(
-    self,
-    phase: Optional[str] = None,
-    milestone: Optional[str] = None,
-    target: Optional[str] = None,
-):
-    """Update the bottom STATUS block lines (Current Phase / Next Milestone / Target)."""
-    if phase:
-        self.readme_content = re.sub(
-            r'(\*\*Current Phase:\*\*\s*).*$',
-            rf'\1{phase}',
-            self.readme_content,
-            flags=re.MULTILINE,
-        )
-
-    if milestone:
-        self.readme_content = re.sub(
-            r'(\*\*Next Milestone:\*\*\s*).*$',
-            rf'\1{milestone}',
-            self.readme_content,
-            flags=re.MULTILINE,
-        )
-
-    if target:
-        self.readme_content = re.sub(
-            r'(\*\*Target:\*\*\s*).*$',
-            rf'\1{target}',
-            self.readme_content,
-            flags=re.MULTILINE,
-        )
-
-    print("🚀 Status block updated")
-
