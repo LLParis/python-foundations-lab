@@ -147,8 +147,8 @@ graph LR
 
 | # | Module | Lessons | Quizzes | Projects | Articles | Status |
 |---|--------|---------|---------|----------|----------|--------|
-| 1 | **Hello World** | 1 | 1 | 2 | 2 | 🟡 In Progress |
-| 2 | **Control Flow** | 2 | 1 | 2 | 1 | ⬜ Locked |
+| 1 | **Hello World** | 1 | 1 | 2 | 2 | ✅ Complete |
+| 2 | **Control Flow** | 2 | 1 | 2 | 1 | 🟡 In Progress |
 | 3 | **Lists** | 2 | 2 | 2 | 2 | ⬜ Locked |
 | 4 | **Loops** | 1 | 1 | 1 | 0 | ⬜ Locked |
 | 5 | **Functions** | 1 | 1 | 1 | 2 | ⬜ Locked |
