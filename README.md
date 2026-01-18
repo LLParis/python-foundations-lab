@@ -173,11 +173,11 @@ graph LR
 
 <br/>
 
-## 🚀 CURRENT MODULE: HELLO WORLD
+## 🚀 CURRENT MODULE: LISTS
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/MODULE_01-HELLO_WORLD-22C55E?style=for-the-badge&labelColor=0b1220"/>
+<img src="https://img.shields.io/badge/MODULE_03-LISTS-22C55E?style=for-the-badge&labelColor=0b1220"/>
 
 <br/><br/>
 
