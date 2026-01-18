@@ -15,7 +15,7 @@
 <!-- Status badges -->
 <p>
   <img src="https://img.shields.io/badge/COURSE-Codecademy_Python_3-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=0b1220"/>
-  <img src="https://img.shields.io/badge/PROGRESS-9%25_Complete-FFB800?style=for-the-badge&labelColor=0b1220"/>
+  <img src="https://img.shields.io/badge/PROGRESS-18%25_Complete-FFB800?style=for-the-badge&labelColor=0b1220"/>
   <img src="https://img.shields.io/badge/STATUS-🟡_ACTIVE-22C55E?style=for-the-badge&labelColor=0b1220"/>
   <img src="https://img.shields.io/badge/TARGET-UW_GRAIL_Caliber-00E5FF?style=for-the-badge&labelColor=0b1220"/>
 </p>
@@ -100,11 +100,11 @@ This repository documents my journey through **Python 3.14 fundamentals** via Co
 **Learn Python 3.14** — One of the most powerful, versatile, and in-demand programming languages today.
 
 <!-- Progress bar -->
-<img src="https://geps.dev/progress/9?dangerColor=FF6B6B&warningColor=FFB800&successColor=22C55E" width="600"/>
+<img src="https://geps.dev/progress/18?dangerColor=FF6B6B&warningColor=FFB800&successColor=22C55E" width="600"/>
 
 <br/><br/>
 
-**9% Complete** • **1/13 Modules** • **0 Commits** • **Building Momentum**
+**18% Complete** • **2/13 Modules** • **0 Commits** • **Making Strong Progress**
 
 </div>
 
@@ -148,8 +148,8 @@ graph LR
 | # | Module | Lessons | Quizzes | Projects | Articles | Status |
 |---|--------|---------|---------|----------|----------|--------|
 | 1 | **Hello World** | 1 | 1 | 2 | 2 | ✅ Complete |
-| 2 | **Control Flow** | 2 | 1 | 2 | 1 | 🟡 In Progress |
-| 3 | **Lists** | 2 | 2 | 2 | 2 | ⬜ Locked |
+| 2 | **Control Flow** | 2 | 1 | 2 | 1 | ✅ Complete |
+| 3 | **Lists** | 2 | 2 | 2 | 2 | 🟡 In Progress |
 | 4 | **Loops** | 1 | 1 | 1 | 0 | ⬜ Locked |
 | 5 | **Functions** | 1 | 1 | 1 | 2 | ⬜ Locked |
 | 6 | **Code Challenges I** | 0 | 0 | 0 | 7 | ⬜ Locked |
@@ -590,8 +590,8 @@ weekend:
 ## 🚀 STATUS
 
 <br/>
-**Current Phase:** Foundation Building (Week 2)
-**Next Milestone:** Complete Control Flow Module
+**Current Phase:** Foundation Building (Week 1)
+**Next Milestone:** Complete Lists Module
 
 **Target:** UW GRAIL-Tier Research Capabilities
 
