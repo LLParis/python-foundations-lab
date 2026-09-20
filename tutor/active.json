@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "lessonId": "0003-linear-search-cost",
-  "revision": 10,
-  "title": "Count the work in linear search",
-  "prompt": "# Count the work in your linear search\n\nKeep the same `find_index` function. Do not run the program for this step.\n\nUsing the list `[7, 2, 5, 2, 9]`, add four visible comment lines at the bottom of the file. For each target below, predict how many times this comparison executes before the function returns:\n\n`numbers[index] == target`\n\nTargets:\n- `7`\n- `2`\n- `9`\n- `6`\n\nThen add two more comment lines answering:\n- Which target above is the cheapest search, and why?\n- Which target above is the most expensive search, and why?\n\nCount comparisons, not list positions. Submit with **Ready for review** without running.",
+  "revision": 11,
+  "title": "Repair the comparison counts",
+  "prompt": "# Repair the comparison counts\n\nKeep the `find_index` function unchanged. Do not run the program.\n\nYour job is only to replace the six bottom comments with clearly labeled answers in this form:\n\n```python\n# target 7 comparisons = ...\n# target 2 comparisons = ...\n# target 9 comparisons = ...\n# target 6 comparisons = ...\n# cheapest = ... because ...\n# most expensive = ... because ...\n```\n\nImportant: an absent target still causes `numbers[index] == target` to execute once for every element checked. `break` only stops the loop when a match occurs.\n\nCount comparison executions, not whether a match ever happens. Submit with **Ready for review** without running.",
   "allowRun": false,
-  "respondingTo": "2026-09-20T03-16-17-323Z-fd68c6",
+  "respondingTo": "2026-09-20T03-32-31-210Z-15226b",
   "connection": "confirmed"
 }
