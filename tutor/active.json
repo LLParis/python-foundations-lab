@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "lessonId": "0001-find-index",
-  "revision": 4,
+  "revision": 5,
   "title": "Repair control flow and local result",
-  "prompt": "# Repair control flow and local result\n\nRepair the same `find_index(numbers, target)` exercise from your submitted code.\n\nRequirements:\n\n- Initialize the not-found result inside the function before the loop.\n- Inspect indices until either the target is found or the list is exhausted.\n- Do not stop after the first element unless the first element is actually the target.\n- When the target is found, save its index and stop the loop.\n- Return the result after the loop so both found and absent cases are handled.\n- Keep the existing call with `[5, 1, 9, 4]` and target `9`, assign the return value to `answer`, and print `answer`.\n- Complete the reasoning notes: predict the returned value for target `9` and for absent target `6`, and explain why the loop stops in each case.\n\nDo not run the program yet. Repair it by reasoning, then submit with **Ready for review**.",
+  "prompt": "# Repair control flow and local result\n\nRepair the same `find_index(numbers, target)` exercise from your submitted code.\n\nRequirements:\n\n- Initialize the not-found result inside the function before the loop.\n- Inspect indices until either the target is found or the list is exhausted.\n- Do not stop after the first element unless the first element is actually the target.\n- When the target is found, save its index and stop the loop.\n- Return the result after the loop so both found and absent cases are handled.\n- Keep the existing call with `[5, 1, 9, 4]` and target `9`, assign the return value to `answer`, and print `answer`.\n\nDo not run the program yet. Repair the code from reasoning, then submit with **Ready for review**.",
   "allowRun": false,
   "respondingTo": "2026-09-20T02-36-48-453Z-558ba5",
   "connection": "confirmed"
