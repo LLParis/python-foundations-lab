@@ -15,7 +15,7 @@ function write(root, name, data) {
   fs.renameSync(temp,file);
 }
 function reviewMessage(review) {
-  return `Review my latest submitted VS Code attempt using the connected GitHub plugin. Freshly read LLParis/python-foundations-lab on main: tutor/PROTOCOL.md, CURRENT.json, and tutor/latest-attempt.json. Expected attemptId: ${review.id}. Publication commit: ${review.commit}. Confirm that exact attemptId before reviewing; do not grade an older answer from chat history. If the file has a different attemptId, stop and report the mismatch. Continue my personalized curriculum with feedback on the submitted code and reasoning. Do not run or edit my code. Then publish the current next action/exercise to tutor/active.json using its fresh blob SHA, increment revision, and set respondingTo to this attemptId, following tutor/PROTOCOL.md. Keep the same lessonId for a repair of the same exercise. This updates my VS Code prompt preview. If GitHub is unavailable or a read/write fails, say so explicitly; do not substitute cached chat text or claim synchronization succeeded.`;
+  return `Review my latest submitted attempt and continue our lesson. Use GitHub to read LLParis/python-foundations-lab on main: tutor/PROTOCOL.md and tutor/latest-attempt.json. Expected attemptId: ${review.id}. Publication commit: ${review.commit}. Update tutor/active.json with our current next step, following the handoff protocol, so my VS Code preview stays in sync.`;
 }
 function connected(root) {
   return Date.now() - (read(root,'health')?.at || 0) < 12000;

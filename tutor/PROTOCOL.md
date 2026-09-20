@@ -2,8 +2,10 @@
 
 Repository: **LLParis/python-foundations-lab**. Read and write these files using the
 connected GitHub plugin. Preserve London's existing conversation, curriculum,
-mission, and current unfinished lesson. This protocol moves files; it does not
-replace the teacher or supply learner solutions.
+mission, and current lesson. This protocol defines file synchronization, not
+teaching policy. GPT web retains its full available capabilities and chooses
+how to teach, explain, demonstrate, execute, test, debug, and research according
+to the lesson and London's requests.
 
 ## One-time connection check
 
@@ -28,23 +30,26 @@ When London says "review latest" or otherwise requests review:
 3. Review the submitted code and reasoning. The assistance field is a learner
    report; use the actual conversation when distinguishing assisted work. Do not
    infer retained or timed mastery from acceptance or successful execution.
-4. Continue ordinary teaching and feedback in this conversation. Do not overwrite
-   learner code, notes, README, mission, or progress claims through GitHub.
+4. Continue personalized teaching and feedback in this conversation, using
+   available tools as appropriate. Preserve the learner's historical submissions
+   and distinguish learner work from tutor-generated examples or changes.
 5. After every review, publish the current next action or exercise using the
    format below, even when London is repairing the same lesson. Set `respondingTo`
    to the exact reviewed attempt ID and increment `revision`. This is required
-   for the VS Code prompt preview to reflect the feedback. Keep explanations in
-   chat; the prompt contains the current actionable task without a full solution.
+   for the VS Code prompt preview to reflect the feedback. The preview contains
+   the current actionable task; chat can carry the fuller teaching explanation.
 
 An automated review request may include an expected attempt ID and publication
 commit. Treat those as a version check: retrieve the file through GitHub, confirm
 the ID matches, and report a mismatch or unavailable tool instead of silently
 reviewing an old chat answer. The request has the same meaning as London clicking
-Ready for review; it is not permission to run or replace learner code.
+Ready for review. It adds no standing execution ban or restriction on the
+tutor's available capabilities.
 
 ## Delivering the current or next exercise
 
-Write ONLY `tutor/active.json`, using its fresh blob SHA. The complete JSON is:
+For routine prompt synchronization, write `tutor/active.json` using its fresh blob
+SHA. Other work follows London's requests. The complete JSON is:
 
 ```json
 {
@@ -52,7 +57,7 @@ Write ONLY `tutor/active.json`, using its fresh blob SHA. The complete JSON is:
   "lessonId": "unique-lowercase-lesson-id",
   "revision": 1,
   "title": "Short exercise title",
-  "prompt": "The exact exercise in Markdown, with requirements and examples as appropriate. No complete answer.",
+  "prompt": "The current task in Markdown, with requirements, examples, and scaffolding as appropriate to the lesson.",
   "allowRun": false,
   "respondingTo": "the-attemptId-just-reviewed-or-null",
   "connection": "confirmed"
@@ -64,6 +69,11 @@ attempt ID. Keep `lessonId` for the same exercise, and increment `revision` when
 clarifying its prompt or changing whether execution is appropriate. Use a new
 unique ID for a genuinely new exercise. Do not change IDs merely for a hint.
 
+Choose `allowRun` for each lesson step. It describes whether London should run
+the program at that point; it does not restrict the tutor's own tools. A
+prediction-first step may use `false`, while execution or testing practice uses
+`true`. The example value above is not a permanent teaching rule.
+
 The arena checks roughly every 15 seconds while open. It preserves previous work
 and opens the next exercise automatically only when it corresponds to the last
 submitted attempt and no newer learner edits would be interrupted. Otherwise it
@@ -71,7 +81,7 @@ keeps the next exercise waiting for the learner to open.
 
 The prompt is public lesson material. Include only the coding task; do not copy
 private conversation history, personal details, confidential assessments, API
-keys, or full solutions into it. Feedback stays in the tutor conversation.
+keys into it. Detailed personal feedback stays in the tutor conversation.
 
 An allowed run is never executed automatically. No GitHub write should claim a
 new learner success unless the actual submitted work establishes it.
