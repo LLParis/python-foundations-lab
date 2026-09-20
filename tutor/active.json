@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "lessonId": "0001-find-index",
-  "revision": 7,
-  "title": "Repair find_index with indentation scaffold",
-  "prompt": "# Repair `find_index` using this scaffold\n\nThe key issue is indentation: `break` must happen only when the target matches.\n\nUse this scaffold and fill the blanks yourself:\n\n```python\ndef find_index(numbers, target):\n    result = -1\n\n    for index in range(len(numbers)):\n        if __________________________:\n            result = __________\n            break\n\n    return __________\n\nanswer = __________________________\nprint(answer)\n```\n\nKeep the existing inputs `[5, 1, 9, 4]` and target `9` above the function.\n\nBefore editing, mentally trace the loop:\n- index 0 -> value 5: no match, so keep going\n- index 1 -> value 1: no match, so keep going\n- index 2 -> value 9: match, save index 2, then stop\n\nDo not run the program yet. Fill the blanks from this reasoning and submit with **Ready for review**.",
+  "lessonId": "0002-find-index-transfer",
+  "revision": 8,
+  "title": "Transfer find_index without a scaffold",
+  "prompt": "# Transfer: write `find_index` from scratch\n\nWrite a new program from scratch, without copying a scaffold.\n\nRequirements:\n\n- Define `find_index(numbers, target)`.\n- Return the index of the first occurrence of `target`.\n- If the target does not appear, return `-1`.\n- Use indexed traversal with `range(len(numbers))`.\n- Stop searching as soon as the first match is found.\n- Use the list `[7, 2, 5, 2, 9]`.\n- Call the function once with target `2` and store the result in `first_answer`.\n- Call the function again with target `6` and store the result in `missing_answer`.\n- Print `first_answer`, then print `missing_answer`.\n\nDo not run it yet. Write it from memory/reasoning, then submit with **Ready for review**.",
   "allowRun": false,
-  "respondingTo": "2026-09-20T02-45-47-653Z-6b7edf",
+  "respondingTo": "2026-09-20T02-49-45-419Z-83ecca",
   "connection": "confirmed"
 }
