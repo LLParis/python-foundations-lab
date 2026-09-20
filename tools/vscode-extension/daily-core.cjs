@@ -10,9 +10,13 @@ function saveState(root, changes) {
   const next = {...state(root), ...changes}; core.writeJson(stateFile(root), next); return next;
 }
 function command(root, program, args, input) {
+  const local=core.local(root);
+  const executable=program === 'gh' && local.githubCliPath ? local.githubCliPath : program;
+  const environment={...process.env,GIT_TERMINAL_PROMPT:'0',GCM_INTERACTIVE:'Never'};
+  if(local.githubConfigDir) environment.GH_CONFIG_DIR=local.githubConfigDir;
   return new Promise((resolve, reject) => {
-    const child = cp.execFile(program, args, {cwd:root,windowsHide:true,encoding:'utf8',timeout:45000,maxBuffer:2000000,
-      env:{...process.env,GIT_TERMINAL_PROMPT:'0',GCM_INTERACTIVE:'Never'}}, (error,stdout,stderr)=>{
+    const child = cp.execFile(executable, args, {cwd:root,windowsHide:true,encoding:'utf8',timeout:45000,maxBuffer:2000000,
+      env:environment}, (error,stdout,stderr)=>{
       if (error) reject(new Error((stderr || stdout || error.message).trim()));
       else resolve(stdout.trim());
     });

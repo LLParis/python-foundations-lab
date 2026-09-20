@@ -16,6 +16,11 @@ function fixture(t) {
   core.write(path.join(root, 'PROGRESS.md'), 'No learning claim.\n');
   return root;
 }
+test('Windows PowerShell UTF-8 settings with a BOM remain readable', t => {
+  const root = fixture(t);
+  core.write(path.join(root, '.arena/local.json'), '\uFEFF{"githubCliPath":"gh.exe"}');
+  assert.equal(core.local(root).githubCliPath, 'gh.exe');
+});
 test('capture preserves exact code, prompt, notes, and previous attempts', t => {
   const root = fixture(t), c = core.current(root);
   const draft = '# naïve draft\nprint("first")\n\n   ';

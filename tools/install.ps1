@@ -2,6 +2,19 @@ $ErrorActionPreference = 'Stop'
 $arenaRoot = Split-Path -Parent $PSScriptRoot
 Push-Location -LiteralPath $arenaRoot
 try {
+    $settingsPath = Join-Path $arenaRoot '.arena\local.json'
+    $localSettings = @{}
+    if (Test-Path -LiteralPath $settingsPath) {
+        $priorSettings = Get-Content -Raw -LiteralPath $settingsPath | ConvertFrom-Json
+        foreach ($property in $priorSettings.PSObject.Properties) { $localSettings[$property.Name] = $property.Value }
+    }
+    $githubCommand = Get-Command gh -ErrorAction SilentlyContinue
+    if ($githubCommand) {
+        $localSettings.githubCliPath = $githubCommand.Source
+        $localSettings.githubConfigDir = Join-Path $env:APPDATA 'GitHub CLI'
+        New-Item -ItemType Directory -Path (Split-Path -Parent $settingsPath) -Force | Out-Null
+        $localSettings | ConvertTo-Json | Set-Content -LiteralPath $settingsPath -Encoding utf8
+    }
     # VS Code creates a new empty profile when opening a window with that name.
     & code --list-extensions --profile 'Learning Arena' 2>$null | Out-Null
     if ($LASTEXITCODE -ne 0) {
