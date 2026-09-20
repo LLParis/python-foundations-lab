@@ -4,9 +4,11 @@ const path = require('node:path');
 const core = require('./core.cjs');
 const daily = require('./daily-core.cjs');
 const platforms = require('./platforms.cjs');
+const bridge = require('./browser-bridge.cjs');
 
 function install(context, {root,saveCurrent,openExercise,openTutor,changed,output}) {
   let timer, stopped=false, busy=false, readyInFlight=false, failures=0, status='Drafts save automatically';
+  let renderedLessonKey;
   const bar=vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left,59);
   let validatedToken;
   async function githubSession(prompt=false) {
@@ -39,7 +41,26 @@ function install(context, {root,saveCurrent,openExercise,openTutor,changed,outpu
       await saveCurrent();
       const result=daily.applyLesson(root,lesson);
       const s=daily.state(root);
-      update(result.pending ? 'Next exercise waiting · your edits are safe' : s.tutorConfirmed ? 'Tutor connected · drafts autosave' : 'Daily sync ready · tutor setup pending');
+      if(!result.pending && renderedLessonKey !== s.appliedKey) {
+        const prompt=core.current(root).prompt;
+        const open=vscode.workspace.textDocuments.find(d=>d.uri.fsPath.toLowerCase()===prompt.toLowerCase());
+        if(!open?.isDirty) {
+          // Use VS Code's file service so open documents and Markdown previews
+          // receive the change even when the external filesystem watcher lags.
+          await vscode.workspace.fs.writeFile(vscode.Uri.file(prompt),Buffer.from(core.read(prompt),'utf8'));
+          await vscode.commands.executeCommand('markdown.preview.refresh');
+          renderedLessonKey=s.appliedKey;
+        }
+      }
+      const delivery = bridge.status(root,s.lastReview?.id);
+      update(result.pending ? 'Next exercise waiting · your edits are safe'
+        : lesson.respondingTo && lesson.respondingTo === s.lastReview?.id ? 'Tutor prompt updated · drafts autosave'
+        : delivery === 'sent' ? 'Review requested · waiting for tutor prompt'
+        : delivery === 'blocked' ? 'Review saved · browser needs attention'
+        : ['uncertain','sending'].includes(delivery) ? 'Review saved · check tutor message delivery'
+        : delivery === 'queued' ? 'Review saved · sending to tutor…'
+        : s.lastReview?.published ? 'Review on GitHub · tutor response pending'
+        : s.tutorConfirmed ? 'Tutor connected · drafts autosave' : 'Daily sync ready · tutor setup pending');
       if(result.newExercise) { await openExercise();vscode.window.showInformationMessage('Your tutor’s next exercise is ready. Previous work is saved.'); }
       failures=0;
     } catch(error) {
@@ -84,9 +105,27 @@ function install(context, {root,saveCurrent,openExercise,openTutor,changed,outpu
         update('Saving and publishing your review copy…');
         review=await daily.publishReview(root,review);
       }
-      update('Ready on GitHub · tell GPT web “review latest”');
-      await openTutor();
-      vscode.window.showInformationMessage('Your exact attempt is saved and available to the tutor. In GPT web, say “review my latest attempt”. No code copying or Git commands.');
+      let delivery;
+      try {delivery=bridge.queue(root,review);} catch(error) {
+        output.appendLine('Browser bridge: '+error.message);
+        delivery={status:'disconnected'};
+      }
+      if(delivery.status === 'queued') {
+        update('Review saved · sending to tutor…');
+        vscode.window.showInformationMessage('Your attempt is on GitHub. The browser bridge is sending the review request to your existing tutor tab.');
+      } else if(delivery.status === 'sent') {
+        update('Review already requested · waiting for tutor');
+        vscode.window.showInformationMessage('This exact attempt has already been sent for review. Your tutor conversation has the request.');
+      } else if(['sending','uncertain'].includes(delivery.status)) {
+        update('Review saved · check tutor message delivery');
+        vscode.window.showWarningMessage('Your attempt is published, but the previous browser send is unconfirmed. Check the tutor conversation before sending another request.');
+      } else {
+        update('Review saved · browser bridge not connected');
+        const choice=await vscode.window.showInformationMessage('Your attempt is on GitHub. Connect the browser bridge for automatic review requests.', 'Bridge setup', 'Copy review request', 'Open tutor');
+        if(choice==='Bridge setup') await vscode.commands.executeCommand('markdown.showPreview',vscode.Uri.file(path.join(root,'docs','BROWSER_BRIDGE.md')));
+        if(choice==='Copy review request') await vscode.env.clipboard.writeText(bridge.reviewMessage(review));
+        if(choice==='Open tutor') await openTutor();
+      }
     } catch(error) {
       daily.saveState(root,{publishError:error.message});
       update('Review not published · draft preserved');output.appendLine(error.stack||error.message);

@@ -8,8 +8,9 @@
    and receiving explanations in your normal GPT web conversation.
 3. **Click Ready for review** in VS Code when you want feedback. It saves an exact
    review copy and publishes the selected practice code and reasoning to this
-   GitHub repository. In GPT web, say **“review my latest attempt.”** The tutor
-   reads that file directly; you do not retype or paste the code.
+   GitHub repository. With the [browser bridge](BROWSER_BRIDGE.md) connected,
+   **Ctrl+Alt+Enter** also sends the review request in your existing tutor tab.
+   The request identifies the exact submitted file; you do not retype or paste code.
 
 When the tutor assigns the next exercise through the connected handoff, VS Code
 receives it automatically, usually within about 15 seconds. Earlier attempts stay
@@ -32,8 +33,8 @@ your draft and pauses the receiver. Resume learning starts it again.
 ## What remains your choice
 
 - Thinking, coding, asking for help, and deciding when an attempt is ready.
-- Sending an ordinary message to GPT web to request review. A GitHub push does
-  **not** wake the chat or send a message on your behalf.
+- Pressing Ready to request review. The optional browser bridge sends that
+  request after successful publication; a GitHub push alone does not wake chat.
 - Running or debugging when appropriate. A prediction exercise never runs itself.
 - Submitting work on an external judge when that becomes part of the curriculum.
 
