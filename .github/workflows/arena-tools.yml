@@ -21,4 +21,4 @@ jobs:
         shell: pwsh
         run: |
           $env:ARENA_TEST_PYTHON = (Get-Command python).Source
-          node --test tools/core.test.cjs
+          node --test tools/core.test.cjs tools/platforms.test.cjs

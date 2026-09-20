@@ -129,6 +129,29 @@ The original course materials and progress guide remain in the [archive](archive
 
 <br/>
 
+## 🌐 EXTERNAL PRACTICE
+
+<div align="center">
+
+<a href="platforms/README.md"><img alt="Platform connections and evidence" src="https://img.shields.io/badge/PLATFORM_CONNECTIONS-00E5FF?style=for-the-badge&labelColor=0b1220"/></a>
+<a href="https://github.com/LLParis/neetcode-submissions"><img alt="NeetCode submission history" src="https://img.shields.io/badge/NEETCODE_SUBMISSIONS-7C3AED?style=for-the-badge&logo=github&logoColor=white&labelColor=0b1220"/></a>
+
+**GPT web teaches · the arena preserves attempts · platforms judge submissions**
+
+</div>
+
+Blind 75 and NeetCode 150 are future practice sets within the curriculum. The arena
+connects platform links, saved code, help used, and later re-solves. The existing
+NeetCode accepted-only GitHub sync has its own submission repository.
+
+[**Open the platform dashboard →**](platforms/README.md) · [**How the integrations work →**](docs/EXTERNAL_PRACTICE.md)
+
+<br/>
+
+---
+
+<br/>
+
 ## 🗺️ CURRICULUM ROADMAP
 
 <div align="center">
@@ -164,7 +187,7 @@ graph LR
 | **Research engineering** | Reproduction, experimental design, measurement | Baselines, discrepancies, ablations, limitations | ⬜ Ahead |
 | **Original research** | New learning, reasoning, perception, or systems methods | Defensible contributions and reproducible results | 🎯 Destination |
 
-[Explore the full capability roadmap →](docs/ROADMAP.md)
+[Explore the full capability roadmap →](docs/ROADMAP.md) · [Read the governing mission →](docs/LEARNING_MISSION.md)
 
 </details>
 
@@ -312,22 +335,22 @@ For another Windows machine with VS Code, Git, and uv installed, run `powershell
 <div align="center">
 
 ```text
-╔══════════════════════════════════════════════════════════╗
-║                                                          ║
-║          BUILDING BLOCKS → FRONTIER INTELLIGENCE           ║
-║                                                          ║
-║   Algorithms & optimization                              ║
-║       → Better ways to solve computational problems       ║
-║                                                          ║
-║   Learning, reasoning & perception                       ║
-║       → Models, agents, memory, multimodal intelligence   ║
-║                                                          ║
-║   Systems & embodied intelligence                        ║
-║       → Reliable infrastructure and intelligent robots    ║
-║                                                          ║
-║       Every layer earns its strength from the one below.  ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
+╔═════════════════════════════════════════════════════════╗
+║                                                         ║
+║          BUILDING BLOCKS → FRONTIER INTELLIGENCE        ║
+║                                                         ║
+║   Algorithms & optimization                             ║
+║       → Better ways to solve computational problems     ║
+║                                                         ║
+║   Learning, reasoning & perception                      ║
+║       → Models, agents, memory, multimodal intelligence ║
+║                                                         ║
+║   Systems & embodied intelligence                       ║
+║       → Reliable infrastructure and intelligent robots  ║
+║                                                         ║
+║       Every layer earns its strength from the one below.║
+║                                                         ║
+╚═════════════════════════════════════════════════════════╝
 ```
 
 </div>
@@ -532,20 +555,20 @@ The workspace tooling and documentation were built with Codex assistance. Exerci
 <div align="center">
 
 ```ascii
-╔═══════════════════════════════════════════════════════════════╗
-║                                                               ║
-║  "The best researchers aren't just smart—they're disciplined" ║
-║                                                               ║
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║  "The best researchers aren't just smart—they're disciplined"║
+║                                                              ║
 ║  Every complex system starts with fundamentals:              ║
-║                                                               ║
+║                                                              ║
 ║  • Writing efficient simulation code                         ║
 ║  • Understanding algorithm complexity                        ║
 ║  • Building scalable research systems                        ║
 ║  • Contributing to cutting-edge AI research                  ║
-║                                                               ║
-║  This repository records that discipline in practice.                ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════╝
+║                                                              ║
+║  This repository records that discipline in practice.        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
 ```
 
 </div>
@@ -561,6 +584,7 @@ The workspace tooling and documentation were built with Codex assistance. Exerci
 ## 🚀 STATUS
 
 <br/>
+
 **Current Phase:** Python Foundations — Functions + Search
 **Next Milestone:** Independent reusable search → complexity → Two Sum
 

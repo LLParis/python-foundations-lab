@@ -15,7 +15,7 @@ function activate(context) {
   function mark(action) {
     core.writeJson(runtimePath, {activated: true, version: context.extension.packageJSON.version,
       lastAction: action, at: new Date().toISOString(), exercise: core.current(root).exercise,
-      python: core.python(root), apiCalls: 0});
+      python: core.python(root), modelCalls: 0});
     changed.fire();
   }
   function item(label, command, icon, description = '') {
@@ -155,6 +155,7 @@ function activate(context) {
       try { await action(); } catch (error) { output.appendLine(error.stack || error.message); vscode.window.showErrorMessage(error.message); }
     }));
   }
+  require('./external.cjs').install(context, {root, folder, saveCurrent, openExercise, output});
   vscode.commands.executeCommand('setContext', 'learningArena.active', true);
   mark('extension activated');
   if (!context.workspaceState.get('opened')) {

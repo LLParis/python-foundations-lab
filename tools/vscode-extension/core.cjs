@@ -59,6 +59,9 @@ function capture(root, assistance) {
     assistance, assessment: 'ungraded', source: 'learner-requested capture',
     sha256: hash(code), promptSha256: hash(prompt)
   };
+  const sourcePath = path.join(c.dir, 'source.json');
+  const platformSource = fs.existsSync(sourcePath) ? json(sourcePath) : null;
+  if (platformSource) metadata.platformSource = platformSource;
   write(path.join(directory, 'attempt.py'), code);
   write(path.join(directory, 'notes.md'), notes);
   write(path.join(directory, 'prompt.md'), prompt);
@@ -74,6 +77,7 @@ function capture(root, assistance) {
   }
   const packet = `# My current learning attempt\n\nExercise: ${c.exercise}\nCapture: ${id}\n`
     + `Help used (self-report): ${assistance}\nAssessment: ungraded\n\n`
+    + (platformSource ? `Platform source: ${platformSource.url}\nAttempt type (selected by learner): ${platformSource.kind}\n\n` : '')
     + `Please review this attempt in our existing lesson. Give the smallest useful hint if needed; `
     + `do not replace my attempt with a full solution or advance the lesson automatically.\n\n`
     + `## Task\n\n${prompt}\n\n## My code\n\n${fence(code, 'python')}\n\n`
@@ -118,7 +122,9 @@ function checkpoint(root, message) {
     throw new Error('There are already staged changes. Review and commit them in Source Control first.');
   }
   const c = current(root);
-  git(root, ['add', '--', `exercises/${c.exercise}`, 'CURRENT.json', 'PROGRESS.md']);
+  const files = [`exercises/${c.exercise}`, 'CURRENT.json', 'PROGRESS.md'];
+  if (fs.existsSync(path.join(root, 'platforms'))) files.push('platforms');
+  git(root, ['add', '--', ...files]);
   if (!git(root, ['diff', '--cached', '--name-only'])) return 'No new exercise changes to save.';
   git(root, ['commit', '-m', `practice(${c.exercise}): ${message}`]);
   return `Saved locally: ${git(root, ['rev-parse', '--short', 'HEAD'])}. Nothing uploaded.`;

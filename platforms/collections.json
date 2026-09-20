@@ -1,0 +1,5 @@
+[
+  { "id": "blind75", "name": "Blind 75", "url": "https://neetcode.io/practice/practice/blind75", "size": 75, "role": "Future practice collection; tutor selects when prerequisites are ready" },
+  { "id": "neetcode150", "name": "NeetCode 150", "url": "https://neetcode.io/practice/practice/neetcode150", "size": 150, "includes": ["blind75"], "role": "Includes Blind 75 plus 75 additional problems; not 225 unique problems" },
+  { "id": "other", "name": "Other / tutor-selected", "role": "Preserve the exact problem and changed requirements" }
+]

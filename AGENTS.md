@@ -1,5 +1,8 @@
 # Learning Arena
 
+Read `docs/LEARNING_MISSION.md` as the governing user mission. Preserve it across
+curriculum, tooling, platform, and presentation changes.
+
 GPT web is London's daily tutor. Codex maintains this workspace and its tools.
 Do not solve, complete, correct, or run an unfinished learner exercise unless
 London explicitly asks. Preserve learner drafts and unsuccessful attempts.

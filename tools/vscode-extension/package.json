@@ -1,7 +1,7 @@
 {
   "name": "learning-arena",
   "displayName": "Learning Arena",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "publisher": "llparis-local",
   "description": "Local practice tools connecting learner-written Python with an existing GPT web tutor. No model calls.",
   "engines": {
@@ -99,6 +99,54 @@
         "title": "Copy one-time tutor handoff",
         "category": "Learning Arena",
         "icon": "$(arrow-swap)"
+      },
+      {
+        "command": "learningArena.externalStatus",
+        "title": "External practice dashboard",
+        "category": "Learning Arena",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "learningArena.externalBrowse",
+        "title": "Profiles and future practice sets",
+        "category": "Learning Arena",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "learningArena.externalStart",
+        "title": "Start a platform exercise",
+        "category": "Learning Arena",
+        "icon": "$(new-file)"
+      },
+      {
+        "command": "learningArena.externalCopy",
+        "title": "Copy my code for submission",
+        "category": "Learning Arena",
+        "icon": "$(copy)"
+      },
+      {
+        "command": "learningArena.externalRecord",
+        "title": "Record result and attempt evidence",
+        "category": "Learning Arena",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "learningArena.externalLeetCode",
+        "title": "Refresh LeetCode statistics",
+        "category": "Learning Arena",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "learningArena.externalCodeforces",
+        "title": "Refresh Codeforces statistics",
+        "category": "Learning Arena",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "learningArena.externalConfigure",
+        "title": "Configure public profiles",
+        "category": "Learning Arena",
+        "icon": "$(account)"
       }
     ],
     "viewsContainers": {
@@ -116,6 +164,12 @@
           "id": "learningArena.today",
           "name": "Your practice workspace",
           "when": "learningArena.active"
+        },
+        {
+          "id": "learningArena.external",
+          "name": "External practice",
+          "when": "learningArena.active",
+          "visibility": "collapsed"
         }
       ]
     },
