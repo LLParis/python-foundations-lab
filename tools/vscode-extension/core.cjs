@@ -22,7 +22,7 @@ function inside(root, relative) {
   // Reject symlink/junction escapes, including existing parent directories.
   let ancestor = file;
   while (!fs.existsSync(ancestor)) ancestor = path.dirname(ancestor);
-  const realRel = path.relative(fs.realpathSync(root), fs.realpathSync(ancestor));
+  const realRel = path.relative(fs.realpathSync.native(root), fs.realpathSync.native(ancestor));
   if (realRel === '..' || realRel.startsWith('..' + path.sep) || path.isAbsolute(realRel)) {
     throw new Error('Linked path leaves the arena.');
   }
@@ -112,8 +112,8 @@ function git(root, args) {
   return result.stdout.trim();
 }
 function checkpoint(root, message) {
-  const top = fs.realpathSync(git(root, ['rev-parse', '--show-toplevel']));
-  if (top.toLowerCase() !== fs.realpathSync(root).toLowerCase()) throw new Error('Wrong Git repository.');
+  const top = fs.realpathSync.native(git(root, ['rev-parse', '--show-toplevel']));
+  if (top.toLowerCase() !== fs.realpathSync.native(root).toLowerCase()) throw new Error('Wrong Git repository.');
   if (git(root, ['diff', '--cached', '--name-only'])) {
     throw new Error('There are already staged changes. Review and commit them in Source Control first.');
   }
