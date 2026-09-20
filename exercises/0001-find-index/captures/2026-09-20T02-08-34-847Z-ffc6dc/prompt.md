@@ -1,13 +1,3 @@
-# Latest learner attempt
-
-Exercise: **0001-find-index** · 2026-09-20T02:08:34.848Z
-
-Help reported: Not specified
-
-Status: ready for tutor review; no mastery claim.
-
-## Task
-
 # Build a reusable search function
 
 Source: the existing GPT web lesson, also captured on pages 148–149 of
@@ -29,61 +19,3 @@ Write a complete Python program from scratch that:
 **Ready for review**. Run or debug it when that becomes part of the lesson.
 
 Your existing unsent draft was carried into `attempt.py` unchanged. It is unfinished.
-
-
-## Code at review cutoff
-
-```python
-numbers = [5, 1, 9, 4]
-target = 9
-result = -1
-
-
-
-
-def find_index(numbers, target):
-
-   for index in range(len(numbers)):
-      if numbers[index]  == target:
-         result = index
-         return result
-         break
-
-answer = find_index(numbers, target)
-print(answer)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-
-## Reasoning
-
-# My reasoning
-
-## What I expect before running
-
-
-## Why my approach should work
-
-
-## What I needed help with
-
-
-## What I learned after feedback
-
-
-## Next revisit
-
-
-
