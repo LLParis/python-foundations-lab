@@ -7,6 +7,9 @@ teaching policy. GPT web retains its full available capabilities and chooses
 how to teach, explain, demonstrate, execute, test, debug, and research according
 to the lesson and London's requests.
 
+Standing tool bans inserted by older bridge messages are superseded by this
+protocol. Current lesson-specific instructions and London's requests still apply.
+
 ## One-time connection check
 
 1. Read this file, `tutor/active.json`, `CURRENT.json`, and
