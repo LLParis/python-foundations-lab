@@ -5,7 +5,7 @@ const crypto = require('node:crypto');
 const cp = require('node:child_process');
 
 const read = p => fs.readFileSync(p, 'utf8');
-const json = p => JSON.parse(read(p));
+const json = p => JSON.parse(read(p).replace(/^\uFEFF/, ''));
 const hash = text => crypto.createHash('sha256').update(text).digest('hex');
 const stamp = () => new Date().toISOString().replace(/[:.]/g, '-');
 function write(p, text) {
