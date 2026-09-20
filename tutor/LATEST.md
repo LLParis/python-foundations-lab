@@ -1,6 +1,6 @@
 # Latest learner attempt
 
-Exercise: **0001-find-index** · 2026-09-20T02:08:34.848Z
+Exercise: **0001-find-index** · 2026-09-20T02:36:48.454Z
 
 Help reported: Not specified
 
@@ -8,28 +8,22 @@ Status: ready for tutor review; no mastery claim.
 
 ## Task
 
-# Build a reusable search function
+# Repair the reusable search function
 
-Source: the existing GPT web lesson, also captured on pages 148–149 of
-*Learn Coding To AI Research*. The preceding trace was completed. This construction
-exercise is still in progress.
+Your submitted function finds the present target, but it still needs to satisfy the full exercise contract. Repair the same exercise from your current code.
 
-Write a complete Python program from scratch that:
+Requirements:
 
-- Defines `find_index(numbers, target)`.
-- Starts with `result = -1`.
-- Searches through the indices of `numbers`.
-- If it finds `target`, stores the index in `result` and stops searching.
-- Returns `result`.
-- Calls the function with `[5, 1, 9, 4]` and target `9`.
-- Stores the returned value in `answer`.
-- Prints `answer`.
+- Keep the function name `find_index(numbers, target)`.
+- The function itself must begin with a not-found result of `-1`; do not depend on a result variable outside the function.
+- Search through the indices of `numbers`.
+- If the target is found, preserve that index as the result and stop searching.
+- Return the result for both cases: target found and target absent.
+- Make sure every statement in the function is reachable; remove or restructure any statement that can never execute.
+- Keep the existing call with `[5, 1, 9, 4]` and target `9`, store the returned value in `answer`, and print it.
+- In your reasoning notes, predict what the function should return for the existing target `9` and for an absent target such as `6`.
 
-**Tutor's instruction: do not run it yet.** Finish your attempt and use
-**Ready for review**. Run or debug it when that becomes part of the lesson.
-
-Your existing unsent draft was carried into `attempt.py` unchanged. It is unfinished.
-
+Do not run the program yet. Make the repair from reasoning, then submit it with **Ready for review**.
 
 ## Code at review cutoff
 
@@ -46,8 +40,9 @@ def find_index(numbers, target):
    for index in range(len(numbers)):
       if numbers[index]  == target:
          result = index
-         return result
-         break
+         
+      break
+   return result
 
 answer = find_index(numbers, target)
 print(answer)

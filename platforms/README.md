@@ -4,7 +4,7 @@ GPT web owns the current lesson. These connections preserve platform evidence as
 
 | Platform | Profile | Evidence available |
 |---|---|---|
-| leetcode | [CloutyCoder](https://leetcode.com/u/CloutyCoder/) | 3 solved (3 easy / 0 medium / 0 hard) · [snapshot](snapshots/leetcode.json), 2026-09-20T01:11:36.696Z |
+| leetcode | [CloutyCoder](https://leetcode.com/u/CloutyCoder/) | 3 solved (3 easy / 0 medium / 0 hard) · [snapshot](snapshots/leetcode.json), 2026-09-20T02:24:31.717Z |
 | neetcode | [FleetEnsign925](https://neetcode.io/user/FleetEnsign925) | Profile linked; no automatic statistics snapshot |
 | codeforces | Not configured | Handle not configured |
 | hackerrank | [sirlondonparis](https://www.hackerrank.com/profile/sirlondonparis) | Profile linked; no automatic statistics snapshot |
