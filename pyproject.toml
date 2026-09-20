@@ -1,0 +1,9 @@
+[project]
+name = "learning-arena"
+version = "0.1.0"
+description = "London's local programming practice workspace"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv]
+package = false

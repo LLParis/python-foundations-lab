@@ -1,0 +1,154 @@
+{
+  "name": "learning-arena",
+  "displayName": "Learning Arena",
+  "version": "0.1.0",
+  "publisher": "llparis-local",
+  "description": "Local practice tools connecting learner-written Python with an existing GPT web tutor. No model calls.",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Education"
+  ],
+  "main": "./extension.cjs",
+  "activationEvents": [
+    "workspaceContains:arena.json"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false
+    },
+    "virtualWorkspaces": false
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "learningArena.open",
+        "title": "Open current exercise",
+        "category": "Learning Arena",
+        "icon": "$(book)"
+      },
+      {
+        "command": "learningArena.notes",
+        "title": "Prediction and reasoning notes",
+        "category": "Learning Arena",
+        "icon": "$(note)"
+      },
+      {
+        "command": "learningArena.copy",
+        "title": "Copy attempt for tutor",
+        "category": "Learning Arena",
+        "icon": "$(copy)"
+      },
+      {
+        "command": "learningArena.tutor",
+        "title": "Open GPT web tutor",
+        "category": "Learning Arena",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "learningArena.run",
+        "title": "Run when ready",
+        "category": "Learning Arena",
+        "icon": "$(play)"
+      },
+      {
+        "command": "learningArena.debug",
+        "title": "Debug current attempt",
+        "category": "Learning Arena",
+        "icon": "$(debug-alt)"
+      },
+      {
+        "command": "learningArena.feedback",
+        "title": "Save tutor feedback from clipboard",
+        "category": "Learning Arena",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "learningArena.checkpoint",
+        "title": "Save local checkpoint",
+        "category": "Learning Arena",
+        "icon": "$(git-commit)"
+      },
+      {
+        "command": "learningArena.new",
+        "title": "New exercise from clipboard",
+        "category": "Learning Arena",
+        "icon": "$(new-file)"
+      },
+      {
+        "command": "learningArena.select",
+        "title": "Revisit an exercise",
+        "category": "Learning Arena",
+        "icon": "$(history)"
+      },
+      {
+        "command": "learningArena.progress",
+        "title": "Progress and next steps",
+        "category": "Learning Arena",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "learningArena.github",
+        "title": "GitHub setup",
+        "category": "Learning Arena",
+        "icon": "$(github)"
+      },
+      {
+        "command": "learningArena.handoff",
+        "title": "Copy one-time tutor handoff",
+        "category": "Learning Arena",
+        "icon": "$(arrow-swap)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "learningArena",
+          "title": "Learning Arena",
+          "icon": "media/arena.svg"
+        }
+      ]
+    },
+    "views": {
+      "learningArena": [
+        {
+          "id": "learningArena.today",
+          "name": "Your practice workspace",
+          "when": "learningArena.active"
+        }
+      ]
+    },
+    "menus": {
+      "editor/title": [
+        {
+          "command": "learningArena.copy",
+          "when": "learningArena.active && resourceFilename == attempt.py",
+          "group": "navigation@1"
+        },
+        {
+          "command": "learningArena.run",
+          "when": "learningArena.active && resourceFilename == attempt.py",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "learningArena.copy",
+        "key": "ctrl+alt+c",
+        "when": "learningArena.active"
+      },
+      {
+        "command": "learningArena.run",
+        "key": "ctrl+alt+r",
+        "when": "learningArena.active"
+      },
+      {
+        "command": "learningArena.new",
+        "key": "ctrl+alt+n",
+        "when": "learningArena.active"
+      }
+    ]
+  }
+}
