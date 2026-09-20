@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+    "name": "Python: step through this file",
+    "type": "debugpy",
+    "request": "launch",
+    "program": "${file}",
+    "console": "integratedTerminal",
+    "justMyCode": true,
+    "cwd": "${fileDirname}"
+  }]
+}

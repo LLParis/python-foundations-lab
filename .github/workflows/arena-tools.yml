@@ -1,0 +1,24 @@
+name: Arena tooling checks
+on:
+  push:
+    paths: ['tools/**', '.github/workflows/arena-tools.yml']
+  pull_request:
+    paths: ['tools/**', '.github/workflows/arena-tools.yml']
+permissions:
+  contents: read
+jobs:
+  tools:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Verify workspace tooling (not learner solutions)
+        shell: pwsh
+        run: |
+          $env:ARENA_TEST_PYTHON = (Get-Command python).Source
+          node --test tools/core.test.cjs
