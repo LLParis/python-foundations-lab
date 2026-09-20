@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "lessonId": "0001-find-index",
-  "revision": 2,
-  "title": "Build a reusable search function",
-  "prompt": "# Build a reusable search function\n\nSource: the existing GPT web lesson, also captured on pages 148–149 of\n*Learn Coding To AI Research*. The preceding trace was completed. This construction\nexercise is still in progress.\n\nWrite a complete Python program from scratch that:\n\n- Defines `find_index(numbers, target)`.\n- Starts with `result = -1`.\n- Searches through the indices of `numbers`.\n- If it finds `target`, stores the index in `result` and stops searching.\n- Returns `result`.\n- Calls the function with `[5, 1, 9, 4]` and target `9`.\n- Stores the returned value in `answer`.\n- Prints `answer`.\n\n**Tutor's instruction: do not run it yet.** Finish your attempt and use\n**Ready for review**. Run or debug it when that becomes part of the lesson.\n\nYour existing unsent draft was carried into `attempt.py` unchanged. It is unfinished.\n",
+  "revision": 3,
+  "title": "Repair the reusable search function",
+  "prompt": "# Repair the reusable search function\n\nYour submitted function finds the present target, but it still needs to satisfy the full exercise contract. Repair the same exercise from your current code.\n\nRequirements:\n\n- Keep the function name `find_index(numbers, target)`.\n- The function itself must begin with a not-found result of `-1`; do not depend on a result variable outside the function.\n- Search through the indices of `numbers`.\n- If the target is found, preserve that index as the result and stop searching.\n- Return the result for both cases: target found and target absent.\n- Make sure every statement in the function is reachable; remove or restructure any statement that can never execute.\n- Keep the existing call with `[5, 1, 9, 4]` and target `9`, store the returned value in `answer`, and print it.\n- In your reasoning notes, predict what the function should return for the existing target `9` and for an absent target such as `6`.\n\nDo not run the program yet. Make the repair from reasoning, then submit it with **Ready for review**.",
   "allowRun": false,
-  "respondingTo": null,
+  "respondingTo": "2026-09-20T02-08-34-847Z-ffc6dc",
   "connection": "confirmed"
 }
