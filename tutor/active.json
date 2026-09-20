@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "lessonId": "0002-find-index-transfer",
-  "revision": 8,
-  "title": "Transfer find_index without a scaffold",
-  "prompt": "# Transfer: write `find_index` from scratch\n\nWrite a new program from scratch, without copying a scaffold.\n\nRequirements:\n\n- Define `find_index(numbers, target)`.\n- Return the index of the first occurrence of `target`.\n- If the target does not appear, return `-1`.\n- Use indexed traversal with `range(len(numbers))`.\n- Stop searching as soon as the first match is found.\n- Use the list `[7, 2, 5, 2, 9]`.\n- Call the function once with target `2` and store the result in `first_answer`.\n- Call the function again with target `6` and store the result in `missing_answer`.\n- Print `first_answer`, then print `missing_answer`.\n\nDo not run it yet. Write it from memory/reasoning, then submit with **Ready for review**.",
-  "allowRun": false,
-  "respondingTo": "2026-09-20T02-49-45-419Z-83ecca",
+  "revision": 9,
+  "title": "Verify your transfer attempt",
+  "prompt": "# Verify your `find_index` transfer\n\nYour submitted code is structurally correct by inspection. Now verify it deliberately.\n\n1. Do not change the function logic.\n2. Before running, add two comment lines at the bottom of the file that explicitly predict:\n   - what `first_answer` will print\n   - what `missing_answer` will print\n3. Then run the program once in VS Code.\n4. Compare the actual output with your two predictions.\n5. Leave the prediction comments in the file and submit with **Ready for review**.\n\nRunning is allowed for this verification step.",
+  "allowRun": true,
+  "respondingTo": "2026-09-20T02-59-40-518Z-28ce92",
   "connection": "confirmed"
 }
