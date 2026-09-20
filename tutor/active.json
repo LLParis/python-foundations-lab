@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "lessonId": "0001-find-index",
-  "revision": 3,
-  "title": "Repair the reusable search function",
-  "prompt": "# Repair the reusable search function\n\nYour submitted function finds the present target, but it still needs to satisfy the full exercise contract. Repair the same exercise from your current code.\n\nRequirements:\n\n- Keep the function name `find_index(numbers, target)`.\n- The function itself must begin with a not-found result of `-1`; do not depend on a result variable outside the function.\n- Search through the indices of `numbers`.\n- If the target is found, preserve that index as the result and stop searching.\n- Return the result for both cases: target found and target absent.\n- Make sure every statement in the function is reachable; remove or restructure any statement that can never execute.\n- Keep the existing call with `[5, 1, 9, 4]` and target `9`, store the returned value in `answer`, and print it.\n- In your reasoning notes, predict what the function should return for the existing target `9` and for an absent target such as `6`.\n\nDo not run the program yet. Make the repair from reasoning, then submit it with **Ready for review**.",
+  "revision": 4,
+  "title": "Repair control flow and local result",
+  "prompt": "# Repair control flow and local result\n\nRepair the same `find_index(numbers, target)` exercise from your submitted code.\n\nRequirements:\n\n- Initialize the not-found result inside the function before the loop.\n- Inspect indices until either the target is found or the list is exhausted.\n- Do not stop after the first element unless the first element is actually the target.\n- When the target is found, save its index and stop the loop.\n- Return the result after the loop so both found and absent cases are handled.\n- Keep the existing call with `[5, 1, 9, 4]` and target `9`, assign the return value to `answer`, and print `answer`.\n- Complete the reasoning notes: predict the returned value for target `9` and for absent target `6`, and explain why the loop stops in each case.\n\nDo not run the program yet. Repair it by reasoning, then submit with **Ready for review**.",
   "allowRun": false,
-  "respondingTo": "2026-09-20T02-08-34-847Z-ffc6dc",
+  "respondingTo": "2026-09-20T02-36-48-453Z-558ba5",
   "connection": "confirmed"
 }
