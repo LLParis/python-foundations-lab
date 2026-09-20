@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "lessonId": "0002-find-index-transfer",
-  "revision": 9,
-  "title": "Verify your transfer attempt",
-  "prompt": "# Verify your `find_index` transfer\n\nYour submitted code is structurally correct by inspection. Now verify it deliberately.\n\n1. Do not change the function logic.\n2. Before running, add two comment lines at the bottom of the file that explicitly predict:\n   - what `first_answer` will print\n   - what `missing_answer` will print\n3. Then run the program once in VS Code.\n4. Compare the actual output with your two predictions.\n5. Leave the prediction comments in the file and submit with **Ready for review**.\n\nRunning is allowed for this verification step.",
-  "allowRun": true,
-  "respondingTo": "2026-09-20T02-59-40-518Z-28ce92",
+  "lessonId": "0003-linear-search-cost",
+  "revision": 10,
+  "title": "Count the work in linear search",
+  "prompt": "# Count the work in your linear search\n\nKeep the same `find_index` function. Do not run the program for this step.\n\nUsing the list `[7, 2, 5, 2, 9]`, add four visible comment lines at the bottom of the file. For each target below, predict how many times this comparison executes before the function returns:\n\n`numbers[index] == target`\n\nTargets:\n- `7`\n- `2`\n- `9`\n- `6`\n\nThen add two more comment lines answering:\n- Which target above is the cheapest search, and why?\n- Which target above is the most expensive search, and why?\n\nCount comparisons, not list positions. Submit with **Ready for review** without running.",
+  "allowRun": false,
+  "respondingTo": "2026-09-20T03-16-17-323Z-fd68c6",
   "connection": "confirmed"
 }
