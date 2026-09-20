@@ -1,6 +1,6 @@
 # Latest learner attempt
 
-Exercise: **0003-count-the-work-in-linear-search** · 2026-09-20T03:32:31.211Z
+Exercise: **0003-count-the-work-in-linear-search** · 2026-09-20T03:41:09.552Z
 
 Help reported: Not specified
 
@@ -8,28 +8,24 @@ Status: ready for tutor review; no mastery claim.
 
 ## Task
 
-# Count the work in linear search
+# Repair the comparison counts
 
-# Count the work in your linear search
+Keep the `find_index` function unchanged. Do not run the program.
 
-Keep the same `find_index` function. Do not run the program for this step.
+Your job is only to replace the six bottom comments with clearly labeled answers in this form:
 
-Using the list `[7, 2, 5, 2, 9]`, add four visible comment lines at the bottom of the file. For each target below, predict how many times this comparison executes before the function returns:
+```python
+# target 7 comparisons = ...
+# target 2 comparisons = ...
+# target 9 comparisons = ...
+# target 6 comparisons = ...
+# cheapest = ... because ...
+# most expensive = ... because ...
+```
 
-`numbers[index] == target`
+Important: an absent target still causes `numbers[index] == target` to execute once for every element checked. `break` only stops the loop when a match occurs.
 
-Targets:
-- `7`
-- `2`
-- `9`
-- `6`
-
-Then add two more comment lines answering:
-- Which target above is the cheapest search, and why?
-- Which target above is the most expensive search, and why?
-
-Count comparisons, not list positions. Submit with **Ready for review** without running.
-
+Count comparison executions, not whether a match ever happens. Submit with **Ready for review** without running.
 
 ## Code at review cutoff
 
@@ -50,18 +46,13 @@ def find_index(numbers, target):
     return result
 answer = find_index(numbers, 7)
 
+# target 7 comparisons = 1
+# target 2 comparisons = 2
+# target 9 comparisons = 5
+# target 6 comparisons = 5
 
-
-
-
-
-# 1
-# 2
-# 5
-# never
-
-# 7
-# 6
+# cheapest = 7, because you only have to do one comparison to determine its first index
+# most expensive = 9 and 6 because they both require doing 5 comparisons
 ```
 
 ## Reasoning

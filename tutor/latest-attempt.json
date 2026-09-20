@@ -1,14 +1,14 @@
 {
   "schema": 1,
   "status": "ready-for-review",
-  "attemptId": "2026-09-20T03-32-31-210Z-15226b",
+  "attemptId": "2026-09-20T03-41-09-551Z-3aa0db",
   "lessonId": "0003-linear-search-cost",
   "exercise": "0003-count-the-work-in-linear-search",
-  "capturedAt": "2026-09-20T03:32:31.211Z",
+  "capturedAt": "2026-09-20T03:41:09.552Z",
   "assistance": "Not specified",
-  "codeSha256": "55b892f0f8c7a3e16428250bc6efb29e63ad0ecbb890e8b0c68a80571e11bbe8",
-  "code": "# Write your own attempt here.\nnumbers = [7, 2, 5, 2, 9]\ntarget_1 = 7\ntarget_2 = 2\ntarget_3 = 9\ntarget_4 = 6\n\ndef find_index(numbers, target):\n    result = -1\n    for index in range(len(numbers)):\n        if numbers[index] == target:\n            result = index\n            break\n    return result\nanswer = find_index(numbers, 7)\n\n\n\n\n\n\n# 1\n# 2\n# 5\n# never\n\n# 7\n# 6",
+  "codeSha256": "9902c49b7e1fee3c30387812bfe8a690d221d69b98aa172870004b55f53ac7ba",
+  "code": "# Write your own attempt here.\nnumbers = [7, 2, 5, 2, 9]\ntarget_1 = 7\ntarget_2 = 2\ntarget_3 = 9\ntarget_4 = 6\n\ndef find_index(numbers, target):\n    result = -1\n    for index in range(len(numbers)):\n        if numbers[index] == target:\n            result = index\n            break\n    return result\nanswer = find_index(numbers, 7)\n\n# target 7 comparisons = 1\n# target 2 comparisons = 2\n# target 9 comparisons = 5\n# target 6 comparisons = 5\n\n# cheapest = 7, because you only have to do one comparison to determine its first index\n# most expensive = 9 and 6 because they both require doing 5 comparisons",
   "reasoning": "# My reasoning\n\n## Prediction before running\n\n\n## Approach\n\n\n## Help and repairs\n\n\n## Next revisit\n\n",
-  "prompt": "# Count the work in linear search\n\n# Count the work in your linear search\n\nKeep the same `find_index` function. Do not run the program for this step.\n\nUsing the list `[7, 2, 5, 2, 9]`, add four visible comment lines at the bottom of the file. For each target below, predict how many times this comparison executes before the function returns:\n\n`numbers[index] == target`\n\nTargets:\n- `7`\n- `2`\n- `9`\n- `6`\n\nThen add two more comment lines answering:\n- Which target above is the cheapest search, and why?\n- Which target above is the most expensive search, and why?\n\nCount comparisons, not list positions. Submit with **Ready for review** without running.\n",
+  "prompt": "# Repair the comparison counts\n\nKeep the `find_index` function unchanged. Do not run the program.\n\nYour job is only to replace the six bottom comments with clearly labeled answers in this form:\n\n```python\n# target 7 comparisons = ...\n# target 2 comparisons = ...\n# target 9 comparisons = ...\n# target 6 comparisons = ...\n# cheapest = ... because ...\n# most expensive = ... because ...\n```\n\nImportant: an absent target still causes `numbers[index] == target` to execute once for every element checked. `break` only stops the loop when a match occurs.\n\nCount comparison executions, not whether a match ever happens. Submit with **Ready for review** without running.",
   "assessment": "not assessed by tooling"
 }
