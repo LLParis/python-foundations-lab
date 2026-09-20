@@ -4,8 +4,10 @@ Read `docs/LEARNING_MISSION.md` as the governing user mission. Preserve it acros
 curriculum, tooling, platform, and presentation changes.
 
 GPT web is London's daily tutor. Codex maintains this workspace and its tools.
-Do not solve, complete, correct, or run an unfinished learner exercise unless
-London explicitly asks. Preserve learner drafts and unsuccessful attempts.
+Codex and maintenance agents must not solve, complete, correct, or run an
+unfinished learner exercise unless London explicitly asks. The daily tutor makes
+teaching and execution decisions under `tutor/PROTOCOL.md` and London's requests.
+Preserve learner drafts and unsuccessful attempts.
 Tooling verification is not learner performance. Never fabricate progress,
 retention, timing, recruiter interest, commits, or GitHub activity.
 

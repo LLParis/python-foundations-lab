@@ -13,6 +13,10 @@ signed-in ChatGPT tab and its selected model. There are no API keys, paid API
 requests, recurring Codex agents, or model calls in the bridge itself. Normal
 ChatGPT usage still applies to the tutor's response.
 
+The automatic message identifies the submission and requests the next prompt
+update. Teaching choices and use of the tutor's available tools stay with GPT web
+and your instructions; the bridge does not carry forward old lesson restrictions.
+
 ## Install once in Chrome
 
 The local host is registered by running `tools/browser-bridge/install.py` with the
