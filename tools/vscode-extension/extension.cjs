@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const core = require('./core.cjs');
 
-function activate(context) {
+async function activate(context) {
   const folder = vscode.workspace.workspaceFolders?.find(f => fs.existsSync(path.join(f.uri.fsPath, 'arena.json')));
   if (!folder) return;
   const root = folder.uri.fsPath;
@@ -164,8 +164,8 @@ function activate(context) {
     }));
   }
   require('./external.cjs').install(context, {root, folder, saveCurrent, openExercise, output});
+  await vscode.commands.executeCommand('setContext', 'learningArena.active', true);
   dailyMode=require('./daily.cjs').install(context,{root,saveCurrent,openExercise,openTutor:actions.tutor,changed,output});
-  vscode.commands.executeCommand('setContext', 'learningArena.active', true);
   mark('extension activated');
   if (!context.workspaceState.get('opened')) {
     context.workspaceState.update('opened', true);

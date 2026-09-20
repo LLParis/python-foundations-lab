@@ -8,6 +8,25 @@ const platforms = require('./platforms.cjs');
 function install(context, {root,saveCurrent,openExercise,openTutor,changed,output}) {
   let timer, stopped=false, busy=false, readyInFlight=false, failures=0, status='Drafts save automatically';
   const bar=vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left,59);
+  let validatedToken;
+  async function githubSession(prompt=false) {
+    const session=await vscode.authentication.getSession('github',['repo'],prompt ? {createIfNone:true} : {silent:true});
+    if(!session) {
+      if(daily.state(root).publisherAuth?.available !== false) daily.saveState(root,{publisherAuth:{available:false,source:'VS Code'}});
+      return undefined;
+    }
+    if(validatedToken !== session.accessToken) {
+      const response=await fetch('https://api.github.com/user',{headers:{Authorization:`Bearer ${session.accessToken}`,Accept:'application/vnd.github+json'},signal:AbortSignal.timeout(15000)});
+      if(!response.ok) throw new Error('Could not verify the VS Code GitHub account.');
+      const profile=await response.json();
+      if(profile.login?.toLowerCase() !== 'llparis') throw new Error('Choose LLParis for this arena’s GitHub connection.');
+      validatedToken=session.accessToken;
+      daily.saveState(root,{publisherAuth:{available:true,source:'VS Code',account:profile.login}});
+    }
+    return session.accessToken;
+  }
+  daily.setCredentialProvider(()=>githubSession(false));
+  void githubSession(false).catch(error=>output.appendLine('Publisher account check: '+error.message));
   bar.command='learningArena.resume';
   function update(message) { status=message;bar.text='$(sync) '+message;bar.tooltip='Learning Arena daily workflow';bar.show();changed.fire(); }
   const getStatus=()=>status;
@@ -56,6 +75,9 @@ function install(context, {root,saveCurrent,openExercise,openTutor,changed,outpu
     busy=true; clearTimeout(timer); timer=undefined;
     try {
       await saveCurrent(); daily.backup(root);
+      // This is reached only after the learner clicks Ready, never by the
+      // passive receiver. VS Code handles any one-time sign-in/consent UI.
+      if(!await githubSession(false)) await githubSession(true);
       await daily.assertHome(root);
       let review=daily.prepareReview(root);
       if(!review.published) {
@@ -73,6 +95,7 @@ function install(context, {root,saveCurrent,openExercise,openTutor,changed,outpu
   }
   const actions={
     resume:()=>resume(true), ready,
+    connectPublisher:async()=>{await githubSession(true);failures=0;clearTimeout(timer);timer=undefined;await resume(false);},
     finish:async()=>{await saveCurrent();daily.backup(root);stopped=true;clearTimeout(timer);timer=undefined;update('Session paused · draft saved');},
     assistance:async()=>{
       const value=await vscode.window.showQuickPick(platforms.helps,{title:'Help used for the current exercise (optional)'});

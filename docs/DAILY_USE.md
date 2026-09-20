@@ -41,6 +41,11 @@ No terminal commands, manual Git commits/pushes, exercise-folder naming, or prom
 copying belong to this normal tutor-connected loop. Advanced/manual controls remain
 under **More tools** for occasional use.
 
+VS Code may ask once to let Learning Arena use your GitHub sign-in when you first
+click Ready. Choose **LLParis**. This is a one-time account permission, not a
+per-exercise step. Credentials stay in VS Code's authentication system and are
+passed to the Git helper only in memory.
+
 **Ready** publishes the selected coding exercise, its code, and `notes.md`; raw
 chat history and private `.arena/` files are not published. Ordinary typing only
 saves locally. Repeated Ready clicks on the same version reuse the same record.
