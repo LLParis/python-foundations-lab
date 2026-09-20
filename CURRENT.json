@@ -1,9 +1,8 @@
 {
-  "exercise": "0001-find-index",
+  "exercise": "0002-transfer-find-index-without-a-scaffold",
   "status": "in-progress",
-  "source": "Existing GPT web lesson; PDF pages 148-149",
-  "note": "An unfinished learner draft was imported unchanged. No solution has been supplied or assessed by the setup tooling.",
-  "remoteLessonId": "0001-find-index",
-  "tutorRevision": 7,
+  "source": "Tutor prompt copied by learner",
+  "remoteLessonId": "0002-find-index-transfer",
+  "tutorRevision": 8,
   "allowRun": false
 }

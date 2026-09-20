@@ -1,6 +1,6 @@
 # Latest learner attempt
 
-Exercise: **0001-find-index** · 2026-09-20T02:49:45.419Z
+Exercise: **0002-transfer-find-index-without-a-scaffold** · 2026-09-20T02:59:40.519Z
 
 Help reported: Not specified
 
@@ -8,46 +8,34 @@ Status: ready for tutor review; no mastery claim.
 
 ## Task
 
-# Repair `find_index` using this scaffold
+# Transfer find_index without a scaffold
 
-The key issue is indentation: `break` must happen only when the target matches.
+# Transfer: write `find_index` from scratch
 
-Use this scaffold and fill the blanks yourself:
+Write a new program from scratch, without copying a scaffold.
 
-```python
-def find_index(numbers, target):
-    result = -1
+Requirements:
 
-    for index in range(len(numbers)):
-        if __________________________:
-            result = __________
-            break
+- Define `find_index(numbers, target)`.
+- Return the index of the first occurrence of `target`.
+- If the target does not appear, return `-1`.
+- Use indexed traversal with `range(len(numbers))`.
+- Stop searching as soon as the first match is found.
+- Use the list `[7, 2, 5, 2, 9]`.
+- Call the function once with target `2` and store the result in `first_answer`.
+- Call the function again with target `6` and store the result in `missing_answer`.
+- Print `first_answer`, then print `missing_answer`.
 
-    return __________
+Do not run it yet. Write it from memory/reasoning, then submit with **Ready for review**.
 
-answer = __________________________
-print(answer)
-```
-
-Keep the existing inputs `[5, 1, 9, 4]` and target `9` above the function.
-
-Before editing, mentally trace the loop:
-- index 0 -> value 5: no match, so keep going
-- index 1 -> value 1: no match, so keep going
-- index 2 -> value 9: match, save index 2, then stop
-
-Do not run the program yet. Fill the blanks from this reasoning and submit with **Ready for review**.
 
 ## Code at review cutoff
 
 ```python
-numbers = [5, 1, 9, 4]
-target = 9
-
-
-
-
-
+# Write your own attempt here.
+numbers = [7, 2, 5, 2, 9]
+first_target = 2
+second_target = 6
 def find_index(numbers, target):
     result = -1
 
@@ -58,41 +46,25 @@ def find_index(numbers, target):
 
     return result
 
-answer = find_index(numbers, target)
-print(answer)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+first_answer = find_index(numbers, first_target)
+print(first_answer)
+missing_answer = find_index(numbers, second_target)
+print(missing_answer)
 ```
 
 ## Reasoning
 
 # My reasoning
 
-## What I expect before running
+## Prediction before running
 
 
-## Why my approach should work
+## Approach
 
 
-## What I needed help with
-
-
-## What I learned after feedback
+## Help and repairs
 
 
 ## Next revisit
-
 
 
