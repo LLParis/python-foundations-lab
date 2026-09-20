@@ -1,8 +1,8 @@
 {
-  "exercise": "0002-transfer-find-index-without-a-scaffold",
+  "exercise": "0003-count-the-work-in-linear-search",
   "status": "in-progress",
   "source": "Tutor prompt copied by learner",
-  "remoteLessonId": "0002-find-index-transfer",
-  "tutorRevision": 9,
-  "allowRun": true
+  "remoteLessonId": "0003-linear-search-cost",
+  "tutorRevision": 10,
+  "allowRun": false
 }

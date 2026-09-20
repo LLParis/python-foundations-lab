@@ -1,6 +1,6 @@
 # Latest learner attempt
 
-Exercise: **0002-transfer-find-index-without-a-scaffold** · 2026-09-20T03:16:17.323Z
+Exercise: **0003-count-the-work-in-linear-search** · 2026-09-20T03:32:31.211Z
 
 Help reported: Not specified
 
@@ -8,43 +8,60 @@ Status: ready for tutor review; no mastery claim.
 
 ## Task
 
-# Verify your `find_index` transfer
+# Count the work in linear search
 
-Your submitted code is structurally correct by inspection. Now verify it deliberately.
+# Count the work in your linear search
 
-1. Do not change the function logic.
-2. Before running, add two comment lines at the bottom of the file that explicitly predict:
-   - what `first_answer` will print
-   - what `missing_answer` will print
-3. Then run the program once in VS Code.
-4. Compare the actual output with your two predictions.
-5. Leave the prediction comments in the file and submit with **Ready for review**.
+Keep the same `find_index` function. Do not run the program for this step.
 
-Running is allowed for this verification step.
+Using the list `[7, 2, 5, 2, 9]`, add four visible comment lines at the bottom of the file. For each target below, predict how many times this comparison executes before the function returns:
+
+`numbers[index] == target`
+
+Targets:
+- `7`
+- `2`
+- `9`
+- `6`
+
+Then add two more comment lines answering:
+- Which target above is the cheapest search, and why?
+- Which target above is the most expensive search, and why?
+
+Count comparisons, not list positions. Submit with **Ready for review** without running.
+
 
 ## Code at review cutoff
 
 ```python
 # Write your own attempt here.
 numbers = [7, 2, 5, 2, 9]
-first_target = 2
-second_target = 6
+target_1 = 7
+target_2 = 2
+target_3 = 9
+target_4 = 6
+
 def find_index(numbers, target):
     result = -1
-
     for index in range(len(numbers)):
         if numbers[index] == target:
             result = index
             break
-
     return result
+answer = find_index(numbers, 7)
 
-first_answer = find_index(numbers, first_target)
-print(first_answer)
-missing_answer = find_index(numbers, second_target)
-print(missing_answer)
-# first_answer will print 2, actually ended up being 1 bc zero indexed so i was initially wrong 
-# missing_answer will print -1
+
+
+
+
+
+# 1
+# 2
+# 5
+# never
+
+# 7
+# 6
 ```
 
 ## Reasoning
