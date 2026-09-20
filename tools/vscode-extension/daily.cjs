@@ -42,6 +42,7 @@ function install(context, {root,saveCurrent,openExercise,openTutor,changed,outpu
   }
   async function resume(openBrowser=true) {
     stopped=false;
+    await vscode.commands.executeCommand('workbench.view.extension.learningArena');
     await openExercise();
     if(openBrowser) await openTutor();
     if(!timer && !busy) void poll();
