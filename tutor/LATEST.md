@@ -1,6 +1,6 @@
 # Latest learner attempt
 
-Exercise: **0002-transfer-find-index-without-a-scaffold** · 2026-09-20T02:59:40.519Z
+Exercise: **0002-transfer-find-index-without-a-scaffold** · 2026-09-20T03:16:17.323Z
 
 Help reported: Not specified
 
@@ -8,26 +8,19 @@ Status: ready for tutor review; no mastery claim.
 
 ## Task
 
-# Transfer find_index without a scaffold
+# Verify your `find_index` transfer
 
-# Transfer: write `find_index` from scratch
+Your submitted code is structurally correct by inspection. Now verify it deliberately.
 
-Write a new program from scratch, without copying a scaffold.
+1. Do not change the function logic.
+2. Before running, add two comment lines at the bottom of the file that explicitly predict:
+   - what `first_answer` will print
+   - what `missing_answer` will print
+3. Then run the program once in VS Code.
+4. Compare the actual output with your two predictions.
+5. Leave the prediction comments in the file and submit with **Ready for review**.
 
-Requirements:
-
-- Define `find_index(numbers, target)`.
-- Return the index of the first occurrence of `target`.
-- If the target does not appear, return `-1`.
-- Use indexed traversal with `range(len(numbers))`.
-- Stop searching as soon as the first match is found.
-- Use the list `[7, 2, 5, 2, 9]`.
-- Call the function once with target `2` and store the result in `first_answer`.
-- Call the function again with target `6` and store the result in `missing_answer`.
-- Print `first_answer`, then print `missing_answer`.
-
-Do not run it yet. Write it from memory/reasoning, then submit with **Ready for review**.
-
+Running is allowed for this verification step.
 
 ## Code at review cutoff
 
@@ -50,6 +43,8 @@ first_answer = find_index(numbers, first_target)
 print(first_answer)
 missing_answer = find_index(numbers, second_target)
 print(missing_answer)
+# first_answer will print 2, actually ended up being 1 bc zero indexed so i was initially wrong 
+# missing_answer will print -1
 ```
 
 ## Reasoning
