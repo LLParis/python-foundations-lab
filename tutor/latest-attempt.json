@@ -1,14 +1,14 @@
 {
   "schema": 1,
   "status": "ready-for-review",
-  "attemptId": "2026-09-20T02-45-47-653Z-6b7edf",
+  "attemptId": "2026-09-20T02-49-45-419Z-83ecca",
   "lessonId": "0001-find-index",
   "exercise": "0001-find-index",
-  "capturedAt": "2026-09-20T02:45:47.653Z",
+  "capturedAt": "2026-09-20T02:49:45.419Z",
   "assistance": "Not specified",
-  "codeSha256": "5dad54e499649f039d7193e6c21c6c1f479aa864aba6064608c725f583fd44cf",
-  "code": "numbers = [5, 1, 9, 4]\ntarget = 9\n\n\n\n\n\ndef find_index(numbers, target):\n    result = -1\n\n    for index in range(len(numbers)):\n        if numbers[index] == target:\n            result = index\n\n        break\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "codeSha256": "af1fb824f0cf4c074889d84c4c2a8d65dc0e0bf2d8442ada7d6d7da9c05af30c",
+  "code": "numbers = [5, 1, 9, 4]\ntarget = 9\n\n\n\n\n\ndef find_index(numbers, target):\n    result = -1\n\n    for index in range(len(numbers)):\n        if numbers[index] == target:\n            result = index\n            break\n\n    return result\n\nanswer = find_index(numbers, target)\nprint(answer)\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
   "reasoning": "# My reasoning\n\n## What I expect before running\n\n\n## Why my approach should work\n\n\n## What I needed help with\n\n\n## What I learned after feedback\n\n\n## Next revisit\n\n\n",
-  "prompt": "# Repair control flow and local result\n\nRepair the same `find_index(numbers, target)` exercise from your submitted code.\n\nRequirements:\n\n- Initialize the not-found result inside the function before the loop.\n- Inspect indices until either the target is found or the list is exhausted.\n- Do not stop after the first element unless the first element is actually the target.\n- When the target is found, save its index and stop the loop.\n- Return the result after the loop so both found and absent cases are handled.\n- Keep the existing call with `[5, 1, 9, 4]` and target `9`, assign the return value to `answer`, and print `answer`.\n\nDo not run the program yet. Repair the code from reasoning, then submit with **Ready for review**.",
+  "prompt": "# Repair `find_index` using this scaffold\n\nThe key issue is indentation: `break` must happen only when the target matches.\n\nUse this scaffold and fill the blanks yourself:\n\n```python\ndef find_index(numbers, target):\n    result = -1\n\n    for index in range(len(numbers)):\n        if __________________________:\n            result = __________\n            break\n\n    return __________\n\nanswer = __________________________\nprint(answer)\n```\n\nKeep the existing inputs `[5, 1, 9, 4]` and target `9` above the function.\n\nBefore editing, mentally trace the loop:\n- index 0 -> value 5: no match, so keep going\n- index 1 -> value 1: no match, so keep going\n- index 2 -> value 9: match, save index 2, then stop\n\nDo not run the program yet. Fill the blanks from this reasoning and submit with **Ready for review**.",
   "assessment": "not assessed by tooling"
 }

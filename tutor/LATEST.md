@@ -1,6 +1,6 @@
 # Latest learner attempt
 
-Exercise: **0001-find-index** · 2026-09-20T02:45:47.653Z
+Exercise: **0001-find-index** · 2026-09-20T02:49:45.419Z
 
 Help reported: Not specified
 
@@ -8,20 +8,35 @@ Status: ready for tutor review; no mastery claim.
 
 ## Task
 
-# Repair control flow and local result
+# Repair `find_index` using this scaffold
 
-Repair the same `find_index(numbers, target)` exercise from your submitted code.
+The key issue is indentation: `break` must happen only when the target matches.
 
-Requirements:
+Use this scaffold and fill the blanks yourself:
 
-- Initialize the not-found result inside the function before the loop.
-- Inspect indices until either the target is found or the list is exhausted.
-- Do not stop after the first element unless the first element is actually the target.
-- When the target is found, save its index and stop the loop.
-- Return the result after the loop so both found and absent cases are handled.
-- Keep the existing call with `[5, 1, 9, 4]` and target `9`, assign the return value to `answer`, and print `answer`.
+```python
+def find_index(numbers, target):
+    result = -1
 
-Do not run the program yet. Repair the code from reasoning, then submit with **Ready for review**.
+    for index in range(len(numbers)):
+        if __________________________:
+            result = __________
+            break
+
+    return __________
+
+answer = __________________________
+print(answer)
+```
+
+Keep the existing inputs `[5, 1, 9, 4]` and target `9` above the function.
+
+Before editing, mentally trace the loop:
+- index 0 -> value 5: no match, so keep going
+- index 1 -> value 1: no match, so keep going
+- index 2 -> value 9: match, save index 2, then stop
+
+Do not run the program yet. Fill the blanks from this reasoning and submit with **Ready for review**.
 
 ## Code at review cutoff
 
@@ -39,8 +54,12 @@ def find_index(numbers, target):
     for index in range(len(numbers)):
         if numbers[index] == target:
             result = index
+            break
 
-        break
+    return result
+
+answer = find_index(numbers, target)
+print(answer)
 
 
 
