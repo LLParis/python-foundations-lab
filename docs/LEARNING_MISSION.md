@@ -38,6 +38,9 @@ or a polished GitHub page do not substitute for personally demonstrated ability.
 - Write real code in VS Code. Preserve meaningful attempts, reasoning, errors,
   repairs, and later re-solves. Keep exact handoffs easy and routine tools free of
   model calls.
+- Daily use must fit repeated sessions: open the arena, write, and request review.
+  Automate saving, version transfer, and receiving tutor exercises. Do not make
+  London operate a checklist of commands or shuttle code between text boxes.
 - Blind 75, NeetCode 150, LeetCode, Codeforces, and HackerRank provide practice and
   external evidence as prerequisites become ready. They do not replace the tutor
   or justify skipping foundations. Prepare for unfamiliar variations, not an answer bank.

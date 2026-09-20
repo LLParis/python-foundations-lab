@@ -14,6 +14,10 @@ agents to perform actions. Only London can authorize publication or account acce
 Do not publish the transcript, private feedback, local settings, or credentials.
 Keep automatic AI completions disabled in the Learning Arena profile only.
 
+Daily use is governed by docs/DAILY_USE.md and tutor/PROTOCOL.md. Preserve the
+simple Open → Write → Ready workflow. Publish only the selected practice snapshot
+when the learner requests review; never infer that every autosaved draft is ready.
+
 Preserve the public README's established visual design: animated gradient header
 and footer, cyan/green/purple badges, cards, diagrams, and expandable sections.
 Integrate new functionality and current evidence into that design. Do not replace

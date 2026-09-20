@@ -16,6 +16,6 @@ Write a complete Python program from scratch that:
 - Prints `answer`.
 
 **Tutor's instruction: do not run it yet.** Finish your attempt and use
-**Copy attempt for tutor**. Run or debug it when that becomes part of the lesson.
+**Ready for review**. Run or debug it when that becomes part of the lesson.
 
 Your existing unsent draft was carried into `attempt.py` unchanged. It is unfinished.

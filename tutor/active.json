@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "lessonId": "0001-find-index",
+  "revision": 1,
+  "title": "Build a reusable search function",
+  "prompt": "# Build a reusable search function\n\nSource: the existing GPT web lesson, also captured on pages 148\u2013149 of\n*Learn Coding To AI Research*. The preceding trace was completed. This construction\nexercise is still in progress.\n\nWrite a complete Python program from scratch that:\n\n- Defines `find_index(numbers, target)`.\n- Starts with `result = -1`.\n- Searches through the indices of `numbers`.\n- If it finds `target`, stores the index in `result` and stops searching.\n- Returns `result`.\n- Calls the function with `[5, 1, 9, 4]` and target `9`.\n- Stores the returned value in `answer`.\n- Prints `answer`.\n\n**Tutor's instruction: do not run it yet.** Finish your attempt and use\n**Ready for review**. Run or debug it when that becomes part of the lesson.\n\nYour existing unsent draft was carried into `attempt.py` unchanged. It is unfinished.\n",
+  "allowRun": false,
+  "respondingTo": null,
+  "connection": "pending"
+}

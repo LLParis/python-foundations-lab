@@ -4,34 +4,23 @@ A personal workspace for learning to derive, implement, explain, and improve
 programs independently, progressing toward demanding software interviews and AI research.
 
 GPT web runs the lessons. VS Code is the place to write, run, debug, and keep the
-work. Git preserves real attempts. The workspace tools make no model/API calls.
+work. Git preserves real attempts. The workspace tools make no model calls. The daily receiver uses the connected GitHub account to move lesson and attempt files.
 
-## Start
+## Daily use
 
-Double-click **Open Learning Arena.cmd**. In VS Code, click the **Learning Arena**
-icon in the left activity bar. Your current prompt and Python draft open together.
+Open the desktop Learning Arena shortcut. It opens the editor and your existing
+GPT web tutor. Write in VS Code; drafts autosave. Click **Ready for review**, then
+ask GPT web to **review my latest attempt**. The selected version is saved and
+published automatically, and the tutor reads it directly through GitHub.
 
-1. **Write current attempt** — work in `attempt.py`; use `notes.md` for predictions
-   or explanations when the tutor asks for them.
-2. **Copy attempt for tutor** — save the code, choose the help you used, and copy a
-   complete review packet. Paste it in your existing GPT web chat. You never need
-   to retype the code there. The packet is also saved locally for attachment.
-3. **Run when ready** — executes real Python and records output. **Debug current
-   attempt** lets you use breakpoints and step through values. Respect prediction
-   exercises that ask you not to run yet.
-4. **Save tutor feedback from clipboard** — optionally retain the feedback locally.
-   It is excluded from Git; put your own learning summary in `notes.md`.
-5. **Save local checkpoint** — records this exercise in Git. Nothing is uploaded.
-6. For the next exercise, copy the tutor's task and choose **New exercise from
-   clipboard**. Previous exercises and captures remain intact.
+The tutor sends new exercises through the connected handoff; VS Code receives
+them automatically while open. Your earlier attempts remain saved. The controls
+for copying packets, creating folders, or committing manually are now optional
+advanced tools, not the daily routine.
 
-**Ctrl+Alt+C** copies the current attempt for the tutor. **Ctrl+Alt+R** runs it when
-ready. **Ctrl+Alt+N** starts an exercise from the copied prompt. All commands are
-also under **Learning Arena** in Ctrl+Shift+P.
-
-Use the ordinary Python terminal for interactive programs requiring `input()`;
-the arena's captured runner is for short noninteractive exercises and stops after
-30 seconds. The runner executes your code locally, with normal filesystem access.
+[Read the short daily guide](DAILY_USE.md). The setup-only message is in
+[GPT_WEB_SETUP_MESSAGE.md](GPT_WEB_SETUP_MESSAGE.md); it does not solve or advance
+any exercise. Tutor-side connection must be verified before claiming the round trip.
 
 ## Files that matter
 

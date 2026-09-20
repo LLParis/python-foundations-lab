@@ -61,7 +61,7 @@ This repository documents my ascent from **Python fundamentals** toward strong s
 <div align="center">
 
 <a href="docs/WORKFLOW.md"><img alt="Open the learning arena guide" src="https://img.shields.io/badge/ENTER_THE_ARENA-22C55E?style=for-the-badge&logo=visualstudiocode&logoColor=white&labelColor=0b1220"/></a>
-<a href="exercises/0001-find-index/prompt.md"><img alt="Current exercise" src="https://img.shields.io/badge/CURRENT_EXERCISE-00E5FF?style=for-the-badge&labelColor=0b1220"/></a>
+<a href="tutor/active.json"><img alt="Current exercise" src="https://img.shields.io/badge/CURRENT_EXERCISE-00E5FF?style=for-the-badge&labelColor=0b1220"/></a>
 <a href="PROGRESS.md"><img alt="Learning record" src="https://img.shields.io/badge/LEARNING_RECORD-7C3AED?style=for-the-badge&labelColor=0b1220"/></a>
 
 </div>
@@ -197,7 +197,7 @@ graph LR
 
 <br/>
 
-## 🚀 CURRENT MODULE: FUNCTIONS + SEARCH
+## 🚀 CURRENT WORKBENCH
 
 <div align="center">
 
@@ -206,31 +206,30 @@ graph LR
 
 <br/><br/>
 
-**Build a reusable search function from the written requirements.**
+**Resume the active tutor-assigned exercise in VS Code.**
 
 </div>
 
 ### 📋 On the Workbench
 
 ```yaml
-exercise: "0001 — Find an index"
-focus: "Combine functions, parameters, list traversal, and a returned result"
-status: "Unfinished learner draft"
-practice: "Independent construction attempt, untimed"
-next: "Search variations → complexity → pairs → Two Sum"
+teacher: "The existing personalized GPT web conversation"
+workbench: "VS Code — current task and draft restored"
+review: "Ready for review → saved snapshot → tutor feedback"
+next_exercise: "Delivered by the tutor through the connected handoff"
 ```
 
 <div align="center">
 
-<a href="exercises/0001-find-index/prompt.md"><img alt="Read the exercise" src="https://img.shields.io/badge/READ_THE_TASK-22C55E?style=for-the-badge&logo=python&logoColor=white"/></a>
-<a href="exercises/0001-find-index/attempt.py"><img alt="View the current attempt" src="https://img.shields.io/badge/VIEW_MY_ATTEMPT-00E5FF?style=for-the-badge&labelColor=0b1220"/></a>
+<a href="tutor/active.json"><img alt="Read the exercise" src="https://img.shields.io/badge/READ_THE_TASK-22C55E?style=for-the-badge&logo=python&logoColor=white"/></a>
+<a href="tutor/LATEST.md"><img alt="View the current attempt" src="https://img.shields.io/badge/VIEW_MY_ATTEMPT-00E5FF?style=for-the-badge&labelColor=0b1220"/></a>
 <a href="exercises/0001-find-index/notes.md"><img alt="Read the reasoning notes" src="https://img.shields.io/badge/REASONING_NOTES-7C3AED?style=for-the-badge&labelColor=0b1220"/></a>
 
 </div>
 
 <br/>
 
-The preceding reusable-search trace was completed in the tutoring conversation. This construction exercise is still in progress. [The learning record](PROGRESS.md) keeps demonstrated work and future goals separate.
+[The active lesson](tutor/active.json) and [latest review copy](tutor/LATEST.md) carry the changing work. [The learning record](PROGRESS.md) keeps demonstrated capability and future goals separate.
 
 <br/>
 
@@ -302,9 +301,9 @@ The preceding reusable-search trace was completed in the tutoring conversation. 
 language: Python 3.14
 workspace: Dedicated Learning Arena profile
 daily_tutor: Existing GPT web conversation
-review: Copy the exact attempt with Ctrl+Alt+C
+review: Ready for review → GPT web reads the saved attempt
 execution: Python runner + breakpoint debugging
-history: Saved attempts + explicit Git checkpoints
+history: Review snapshots saved and published automatically
 ```
 
 <details>
@@ -312,15 +311,16 @@ history: Saved attempts + explicit Git checkpoints
 
 <br/>
 
-1. Open **Open Learning Arena.cmd** on the workstation.
-2. Write in `attempt.py`, with the prompt visible alongside it.
-3. Use **Copy attempt for tutor**, then paste into the existing GPT web chat.
-4. Run or debug when the lesson calls for it; keep predictions in `notes.md`.
-5. Save a local checkpoint and push when ready to share the work.
+1. Open the **Learning Arena** desktop shortcut: editor and tutor open together.
+2. Write in VS Code; your draft saves automatically.
+3. Click **Ready for review**, then tell GPT web to review your latest attempt.
+4. Continue the conversation; the tutor’s next exercise arrives in the arena.
+
+[Daily use, in one page →](docs/DAILY_USE.md)
 
 For another Windows machine with VS Code, Git, and uv installed, run `powershell -ExecutionPolicy Bypass -File tools/install.ps1` once.
 
-[Daily workflow](docs/WORKFLOW.md) · [GitHub connection](docs/GITHUB.md) · [Tutor handoff](docs/TUTOR_HANDOFF.md)
+[Daily workflow](docs/DAILY_USE.md) · [GitHub connection](docs/GITHUB.md) · [Tutor handoff](docs/TUTOR_HANDOFF.md)
 
 </details>
 
@@ -525,7 +525,7 @@ reflect:
 
 <br/>
 
-- [Daily workflow](docs/WORKFLOW.md)
+- [Daily workflow](docs/DAILY_USE.md)
 - [GitHub and GPT web connection](docs/GITHUB.md)
 - [One-time tutor handoff](docs/TUTOR_HANDOFF.md)
 - [Local extension source](tools/vscode-extension/)
