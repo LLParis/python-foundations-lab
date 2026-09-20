@@ -4,16 +4,21 @@ const path = require('node:path');
 const cp = require('node:child_process');
 const core = require('./core.cjs');
 const repository = 'LLParis/python-foundations-lab';
+let credentialProvider;
+function setCredentialProvider(provider) { credentialProvider=provider; }
 const stateFile = root => path.join(root, '.arena', 'daily.json');
 const state = root => fs.existsSync(stateFile(root)) ? core.json(stateFile(root)) : {};
 function saveState(root, changes) {
   const next = {...state(root), ...changes}; core.writeJson(stateFile(root), next); return next;
 }
-function command(root, program, args, input) {
+async function command(root, program, args, input) {
   const local=core.local(root);
   const executable=program === 'gh' && local.githubCliPath ? local.githubCliPath : program;
   const environment={...process.env,GIT_TERMINAL_PROMPT:'0',GCM_INTERACTIVE:'Never'};
   if(local.githubConfigDir) environment.GH_CONFIG_DIR=local.githubConfigDir;
+  environment.GH_HOST='github.com';
+  const token=credentialProvider ? await credentialProvider() : undefined;
+  if(token) environment.GH_TOKEN=token;
   return new Promise((resolve, reject) => {
     const child = cp.execFile(executable, args, {cwd:root,windowsHide:true,encoding:'utf8',timeout:45000,maxBuffer:2000000,
       env:environment}, (error,stdout,stderr)=>{
@@ -76,10 +81,12 @@ function applyLesson(root, data, force = false) {
   return {changed:true,newExercise:isNew,exercise:next.exercise};
 }
 async function fetchLesson(root) {
-  const raw = await command(root,'gh',['api',`repos/${repository}/contents/tutor/active.json?ref=main`]);
-  const data = JSON.parse(raw);
-  if (data.type !== 'file' || data.encoding !== 'base64' || data.size > 150000) throw new Error('Unexpected tutor lesson response.');
-  return validateLesson(JSON.parse(Buffer.from(data.content,'base64').toString('utf8')));
+  // Public repository transport needs no separate CLI sign-in and does not
+  // consume the anonymous REST API's small hourly request quota.
+  await git(root,['fetch','--quiet','origin','main']);
+  const raw=await git(root,['show','origin/main:tutor/active.json']);
+  if(raw.length>150000) throw new Error('Unexpected tutor lesson response.');
+  return validateLesson(JSON.parse(raw));
 }
 async function assertHome(root, run = git) {
   const top = await run(root,['rev-parse','--show-toplevel']);
@@ -158,4 +165,4 @@ async function publishReview(root, review, run = git) {
   review = {...review,published:true,publishedAt:new Date().toISOString()};
   saveState(root,{lastReview:review,publishError:null}); return review;
 }
-module.exports = {repository,state,saveState,command,git,validateLesson,fingerprint,backup,applyLesson,fetchLesson,assertHome,prepareReview,publishReview,stageFile};
+module.exports = {repository,state,saveState,command,git,setCredentialProvider,validateLesson,fingerprint,backup,applyLesson,fetchLesson,assertHome,prepareReview,publishReview,stageFile};
