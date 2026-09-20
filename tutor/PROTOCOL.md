@@ -30,6 +30,17 @@ When London says "review latest" or otherwise requests review:
    infer retained or timed mastery from acceptance or successful execution.
 4. Continue ordinary teaching and feedback in this conversation. Do not overwrite
    learner code, notes, README, mission, or progress claims through GitHub.
+5. After every review, publish the current next action or exercise using the
+   format below, even when London is repairing the same lesson. Set `respondingTo`
+   to the exact reviewed attempt ID and increment `revision`. This is required
+   for the VS Code prompt preview to reflect the feedback. Keep explanations in
+   chat; the prompt contains the current actionable task without a full solution.
+
+An automated review request may include an expected attempt ID and publication
+commit. Treat those as a version check: retrieve the file through GitHub, confirm
+the ID matches, and report a mismatch or unavailable tool instead of silently
+reviewing an old chat answer. The request has the same meaning as London clicking
+Ready for review; it is not permission to run or replace learner code.
 
 ## Delivering the current or next exercise
 

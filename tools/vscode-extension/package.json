@@ -1,7 +1,7 @@
 {
   "name": "learning-arena",
   "displayName": "Learning Arena",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "publisher": "llparis-local",
   "description": "Local practice tools connecting learner-written Python with an existing GPT web tutor. No model calls.",
   "engines": {

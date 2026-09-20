@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Learning Arena Tutor Bridge",
+  "version": "1.0.0",
+  "description": "Sends the review request to your existing ChatGPT tutor after you press Ready in VS Code.",
+  "permissions": [
+    "nativeMessaging",
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Learning Arena Tutor Bridge"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4FHhTIdlau0eGFGGUrOY9l7UxoY2jm0qiNhqLkcOJdKTaED7czdtyIt6T7cuIBcDb7fWSlA8HzUUHT7iZOtubEY5w8F3CvkhUcfn873H23IZmT/RcUOi9coJ4D/mCsa+VcI+qdbxbrW7u1TUy47Rboe2ecwz24xM406khY6rSuFI3s7WDNfl269i0OFhO/ShOpq1hFZG0voLu32SVNaq5hUAB/CB8ms4zl/vtgH1wZHrXim48lBqHdLiwHdMdKwtsNZBqVSbPTFTmBU9D5z3YP8f3YikBUFOsZhjHibXDeRtbGBf9+HLn9MZ9Ze8ITtjSvA+wVmZBAZq5fZ02uGDtQIDAQAB"
+}
