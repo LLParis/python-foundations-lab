@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "lessonId": "0003-linear-search-cost",
-  "revision": 11,
-  "title": "Repair the comparison counts",
-  "prompt": "# Repair the comparison counts\n\nKeep the `find_index` function unchanged. Do not run the program.\n\nYour job is only to replace the six bottom comments with clearly labeled answers in this form:\n\n```python\n# target 7 comparisons = ...\n# target 2 comparisons = ...\n# target 9 comparisons = ...\n# target 6 comparisons = ...\n# cheapest = ... because ...\n# most expensive = ... because ...\n```\n\nImportant: an absent target still causes `numbers[index] == target` to execute once for every element checked. `break` only stops the loop when a match occurs.\n\nCount comparison executions, not whether a match ever happens. Submit with **Ready for review** without running.",
+  "lessonId": "0004-big-o-linear-search",
+  "revision": 12,
+  "title": "From comparison counts to Big-O",
+  "prompt": "# From comparison counts to Big-O\n\nDo not run code for this step.\n\nBig-O describes how the amount of work grows as the input size grows. For linear search, let `n` mean the number of elements in the list.\n\nAdd these six visible comment answers at the bottom of the file:\n\n```python\n# if n = 5, worst-case comparisons = ...\n# if n = 10, worst-case comparisons = ...\n# if n = 100, worst-case comparisons = ...\n# best-case comparisons = ... because ...\n# worst-case comparisons = ... in terms of n\n# worst-case Big-O = ... because ...\n```\n\nFor the final line, choose from `O(1)`, `O(log n)`, `O(n)`, or `O(n^2)`.\n\nFocus on growth: if the list becomes twice as long, ask how the worst-case number of comparisons changes. Submit with **Ready for review** without running.",
   "allowRun": false,
-  "respondingTo": "2026-09-20T03-32-31-210Z-15226b",
+  "respondingTo": "2026-09-20T03-41-09-551Z-3aa0db",
   "connection": "confirmed"
 }
