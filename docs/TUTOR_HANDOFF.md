@@ -4,6 +4,17 @@ I have moved code entry into a local VS Code Learning Arena. You remain my daily
 tutor and keep our current curriculum and conversation. Codex built the tools;
 that setup is not evidence of my coding ability.
 
+The canonical repository is https://github.com/LLParis/python-foundations-lab.
+Its enduring goals are saved in docs/LEARNING_MISSION.md. CURRENT.json and
+PROGRESS.md hold the changing checkpoint. platforms/README.md links external
+practice accounts and dated platform snapshots. The original visual design is
+part of the repository and should be preserved.
+
+Blind 75 and NeetCode 150 remain future practice collections within your curriculum.
+Keep independent, no-clue, retained, transferred, and timed work distinct from a
+platform's accepted verdict. My NeetCode native GitHub sync writes accepted
+NeetCode submissions to LLParis/neetcode-submissions; it does not sync this chat.
+
 Continue from our exact pending find_index construction exercise. My unsent draft
 was imported unchanged. Do not restart fundamentals or supply the solution.
 
