@@ -11,6 +11,7 @@ function activate(context) {
   const output = vscode.window.createOutputChannel('Learning Arena');
   const changed = new vscode.EventEmitter();
   let busy = false;
+  let dailyMode;
   const runtimePath = path.join(root, '.arena', 'runtime.json');
   function mark(action) {
     core.writeJson(runtimePath, {activated: true, version: context.extension.packageJSON.version,
@@ -26,13 +27,19 @@ function activate(context) {
   const provider = {
     onDidChangeTreeData: changed.event,
     getTreeItem: i => i,
-    getChildren: () => [
+    getChildren: node => node?.children || [
       item(core.current(root).exercise, 'open', 'book', 'current exercise'),
-      item('Write current attempt', 'open', 'edit'),
+      item('Resume learning', 'resume', 'play-circle'),
+      item('Ready for review', 'ready', 'send', 'save + publish for GPT web'),
+      item('Run when ready', 'run', 'play'),
+      item('Finish session', 'finish', 'save'),
+      item(dailyMode?.getStatus() || 'Drafts save automatically', 'resume', 'info'),
+      Object.assign(new vscode.TreeItem('More tools',vscode.TreeItemCollapsibleState.Collapsed),{children:[
       item('Prediction / reasoning notes', 'notes', 'note'),
+      item('Set help used (optional)', 'assistance', 'account'),
+      item('Open a waiting next exercise', 'nextLesson', 'arrow-right'),
       item('Copy attempt for tutor', 'copy', 'copy'),
       item('Open GPT web tutor', 'tutor', 'link-external'),
-      item('Run when ready', 'run', 'play'),
       item('Debug current attempt', 'debug', 'debug-alt'),
       item('Save tutor feedback from clipboard', 'feedback', 'comment-discussion'),
       item('Save local checkpoint', 'checkpoint', 'git-commit'),
@@ -41,7 +48,8 @@ function activate(context) {
       item('Progress and next steps', 'progress', 'checklist'),
       item('GitHub setup', 'github', 'github'),
       item('Copy one-time tutor handoff', 'handoff', 'arrow-swap'),
-      item('No model calls · no automatic uploads', null, 'info')
+      item('No model calls · publishing happens on Ready', null, 'info')
+      ]})
     ]
   };
   context.subscriptions.push(output, changed, vscode.window.createTreeView('learningArena.today', {treeDataProvider: provider}));
@@ -156,6 +164,7 @@ function activate(context) {
     }));
   }
   require('./external.cjs').install(context, {root, folder, saveCurrent, openExercise, output});
+  dailyMode=require('./daily.cjs').install(context,{root,saveCurrent,openExercise,openTutor:actions.tutor,changed,output});
   vscode.commands.executeCommand('setContext', 'learningArena.active', true);
   mark('extension activated');
   if (!context.workspaceState.get('opened')) {

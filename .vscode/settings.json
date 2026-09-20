@@ -17,7 +17,7 @@
   ],
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.indentation": true,
-  "files.autoSave": "off",
+  "files.autoSave": "afterDelay",
   "files.trimTrailingWhitespace": false,
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
@@ -38,5 +38,7 @@
     ".venv": true,
     ".arena": true,
     "**/captures": true
-  }
+  },
+  "files.autoSaveDelay": 1000,
+  "learningArena.dailyMode": true
 }

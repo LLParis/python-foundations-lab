@@ -1,7 +1,7 @@
 {
   "name": "learning-arena",
   "displayName": "Learning Arena",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "llparis-local",
   "description": "Local practice tools connecting learner-written Python with an existing GPT web tutor. No model calls.",
   "engines": {
@@ -147,6 +147,36 @@
         "title": "Configure public profiles",
         "category": "Learning Arena",
         "icon": "$(account)"
+      },
+      {
+        "command": "learningArena.resume",
+        "title": "Resume learning",
+        "category": "Learning Arena",
+        "icon": "$(play-circle)"
+      },
+      {
+        "command": "learningArena.ready",
+        "title": "Ready for review",
+        "category": "Learning Arena",
+        "icon": "$(send)"
+      },
+      {
+        "command": "learningArena.finish",
+        "title": "Finish session",
+        "category": "Learning Arena",
+        "icon": "$(save)"
+      },
+      {
+        "command": "learningArena.assistance",
+        "title": "Set help used for this exercise",
+        "category": "Learning Arena",
+        "icon": "$(account)"
+      },
+      {
+        "command": "learningArena.nextLesson",
+        "title": "Open the waiting next exercise",
+        "category": "Learning Arena",
+        "icon": "$(arrow-right)"
       }
     ],
     "viewsContainers": {
@@ -176,7 +206,7 @@
     "menus": {
       "editor/title": [
         {
-          "command": "learningArena.copy",
+          "command": "learningArena.ready",
           "when": "learningArena.active && resourceFilename == attempt.py",
           "group": "navigation@1"
         },
@@ -202,7 +232,22 @@
         "command": "learningArena.new",
         "key": "ctrl+alt+n",
         "when": "learningArena.active"
+      },
+      {
+        "command": "learningArena.ready",
+        "key": "ctrl+alt+enter",
+        "when": "learningArena.active"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Learning Arena",
+      "properties": {
+        "learningArena.dailyMode": {
+          "type": "boolean",
+          "default": true,
+          "description": "Resume the current lesson and receive tutor exercises through the connected GitHub repository. Makes no model calls."
+        }
+      }
+    }
   }
 }

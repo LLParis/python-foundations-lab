@@ -1,3 +1,3 @@
 @echo off
 cd /d "%~dp0"
-code --new-window --profile "Learning Arena" "%~dp0."
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\start-session.ps1"
