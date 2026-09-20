@@ -26,6 +26,7 @@ function install(context, {root,saveCurrent,openExercise,openTutor,changed,outpu
     return session.accessToken;
   }
   daily.setCredentialProvider(()=>githubSession(false));
+  void githubSession(false).catch(error=>output.appendLine('Publisher account check: '+error.message));
   bar.command='learningArena.resume';
   function update(message) { status=message;bar.text='$(sync) '+message;bar.tooltip='Learning Arena daily workflow';bar.show();changed.fire(); }
   const getStatus=()=>status;

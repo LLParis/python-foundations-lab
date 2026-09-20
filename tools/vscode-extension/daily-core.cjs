@@ -17,7 +17,8 @@ async function command(root, program, args, input) {
   const environment={...process.env,GIT_TERMINAL_PROMPT:'0',GCM_INTERACTIVE:'Never'};
   if(local.githubConfigDir) environment.GH_CONFIG_DIR=local.githubConfigDir;
   environment.GH_HOST='github.com';
-  const token=credentialProvider ? await credentialProvider() : undefined;
+  const needsCredential=program === 'gh' || (program === 'git' && args[0] === 'push');
+  const token=credentialProvider && needsCredential ? await credentialProvider() : undefined;
   if(token) environment.GH_TOKEN=token;
   return new Promise((resolve, reject) => {
     const child = cp.execFile(executable, args, {cwd:root,windowsHide:true,encoding:'utf8',timeout:45000,maxBuffer:2000000,
