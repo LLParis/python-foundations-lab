@@ -1,13 +1,3 @@
-# Latest learner attempt
-
-Exercise: **0004-from-comparison-counts-to-big-o** · 2026-09-21T01:40:11.077Z
-
-Help reported: Not specified
-
-Status: ready for tutor review; no mastery claim.
-
-## Task
-
 # From comparison counts to Big-O
 
 # From comparison counts to Big-O
@@ -30,33 +20,3 @@ Add these six visible comment answers at the bottom of the file:
 For the final line, choose from `O(1)`, `O(log n)`, `O(n)`, or `O(n^2)`.
 
 Focus on growth: if the list becomes twice as long, ask how the worst-case number of comparisons changes. Submit with **Ready for review** without running.
-
-
-## Code at review cutoff
-
-```python
-# Write your own attempt here.
-# if n = 5, worst-case comparisons = 5
-# if n = 10, worst-case comparisons = 10
-# if n = 100, worst-case comparisons = 100
-# best-case comparisons = 1 because it could find it's target on the first comparison
-# worst-case comparisons = n because it could need every comparison available to find the target
-# worst-case Big-O = O(n) because the complexity grows with n
-```
-
-## Reasoning
-
-# My reasoning
-
-## Prediction before running
-
-
-## Approach
-
-
-## Help and repairs
-
-
-## Next revisit
-
-

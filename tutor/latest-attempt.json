@@ -1,14 +1,14 @@
 {
   "schema": 1,
   "status": "ready-for-review",
-  "attemptId": "2026-09-20T03-41-09-551Z-3aa0db",
-  "lessonId": "0003-linear-search-cost",
-  "exercise": "0003-count-the-work-in-linear-search",
-  "capturedAt": "2026-09-20T03:41:09.552Z",
+  "attemptId": "2026-09-21T01-40-11-076Z-2778a1",
+  "lessonId": "0004-big-o-linear-search",
+  "exercise": "0004-from-comparison-counts-to-big-o",
+  "capturedAt": "2026-09-21T01:40:11.077Z",
   "assistance": "Not specified",
-  "codeSha256": "9902c49b7e1fee3c30387812bfe8a690d221d69b98aa172870004b55f53ac7ba",
-  "code": "# Write your own attempt here.\nnumbers = [7, 2, 5, 2, 9]\ntarget_1 = 7\ntarget_2 = 2\ntarget_3 = 9\ntarget_4 = 6\n\ndef find_index(numbers, target):\n    result = -1\n    for index in range(len(numbers)):\n        if numbers[index] == target:\n            result = index\n            break\n    return result\nanswer = find_index(numbers, 7)\n\n# target 7 comparisons = 1\n# target 2 comparisons = 2\n# target 9 comparisons = 5\n# target 6 comparisons = 5\n\n# cheapest = 7, because you only have to do one comparison to determine its first index\n# most expensive = 9 and 6 because they both require doing 5 comparisons",
+  "codeSha256": "be2bb7938b8977afd605f8e0716801e91b6d4b967759f48f22558ea7c2f27733",
+  "code": "# Write your own attempt here.\n# if n = 5, worst-case comparisons = 5\n# if n = 10, worst-case comparisons = 10\n# if n = 100, worst-case comparisons = 100\n# best-case comparisons = 1 because it could find it's target on the first comparison\n# worst-case comparisons = n because it could need every comparison available to find the target\n# worst-case Big-O = O(n) because the complexity grows with n",
   "reasoning": "# My reasoning\n\n## Prediction before running\n\n\n## Approach\n\n\n## Help and repairs\n\n\n## Next revisit\n\n",
-  "prompt": "# Repair the comparison counts\n\nKeep the `find_index` function unchanged. Do not run the program.\n\nYour job is only to replace the six bottom comments with clearly labeled answers in this form:\n\n```python\n# target 7 comparisons = ...\n# target 2 comparisons = ...\n# target 9 comparisons = ...\n# target 6 comparisons = ...\n# cheapest = ... because ...\n# most expensive = ... because ...\n```\n\nImportant: an absent target still causes `numbers[index] == target` to execute once for every element checked. `break` only stops the loop when a match occurs.\n\nCount comparison executions, not whether a match ever happens. Submit with **Ready for review** without running.",
+  "prompt": "# From comparison counts to Big-O\n\n# From comparison counts to Big-O\n\nDo not run code for this step.\n\nBig-O describes how the amount of work grows as the input size grows. For linear search, let `n` mean the number of elements in the list.\n\nAdd these six visible comment answers at the bottom of the file:\n\n```python\n# if n = 5, worst-case comparisons = ...\n# if n = 10, worst-case comparisons = ...\n# if n = 100, worst-case comparisons = ...\n# best-case comparisons = ... because ...\n# worst-case comparisons = ... in terms of n\n# worst-case Big-O = ... because ...\n```\n\nFor the final line, choose from `O(1)`, `O(log n)`, `O(n)`, or `O(n^2)`.\n\nFocus on growth: if the list becomes twice as long, ask how the worst-case number of comparisons changes. Submit with **Ready for review** without running.\n",
   "assessment": "not assessed by tooling"
 }

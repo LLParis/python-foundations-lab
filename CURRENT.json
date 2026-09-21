@@ -1,8 +1,8 @@
 {
-  "exercise": "0003-count-the-work-in-linear-search",
+  "exercise": "0004-from-comparison-counts-to-big-o",
   "status": "in-progress",
   "source": "Tutor prompt copied by learner",
-  "remoteLessonId": "0003-linear-search-cost",
-  "tutorRevision": 11,
+  "remoteLessonId": "0004-big-o-linear-search",
+  "tutorRevision": 12,
   "allowRun": false
 }
