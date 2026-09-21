@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "lessonId": "0004-big-o-linear-search",
-  "revision": 12,
-  "title": "From comparison counts to Big-O",
-  "prompt": "# From comparison counts to Big-O\n\nDo not run code for this step.\n\nBig-O describes how the amount of work grows as the input size grows. For linear search, let `n` mean the number of elements in the list.\n\nAdd these six visible comment answers at the bottom of the file:\n\n```python\n# if n = 5, worst-case comparisons = ...\n# if n = 10, worst-case comparisons = ...\n# if n = 100, worst-case comparisons = ...\n# best-case comparisons = ... because ...\n# worst-case comparisons = ... in terms of n\n# worst-case Big-O = ... because ...\n```\n\nFor the final line, choose from `O(1)`, `O(log n)`, `O(n)`, or `O(n^2)`.\n\nFocus on growth: if the list becomes twice as long, ask how the worst-case number of comparisons changes. Submit with **Ready for review** without running.",
+  "lessonId": "0005-nested-loop-cost",
+  "revision": 13,
+  "title": "Why nested loops become quadratic",
+  "prompt": "# Why nested loops become quadratic\n\nDo not run code for this step.\n\nConsider:\n\n```python\nfor left in range(n):\n    for right in range(n):\n        print(left, right)\n```\n\nThe outer loop runs `n` times. For each one of those outer iterations, the inner loop also runs `n` times.\n\nAdd these visible comment answers:\n\n```python\n# if n = 2, print executes = ...\n# if n = 3, print executes = ...\n# if n = 10, print executes = ...\n# total executions in terms of n = ...\n# if n doubles, the work changes by a factor of ...\n# Big-O = ... because ...\n```\n\nFor the Big-O line, choose from `O(1)`, `O(log n)`, `O(n)`, or `O(n^2)`.\n\nThen add one final comment explaining in your own words why two nested loops are different from the single-loop linear search you just analyzed.\n\nSubmit with **Ready for review** without running.",
   "allowRun": false,
-  "respondingTo": "2026-09-20T03-41-09-551Z-3aa0db",
+  "respondingTo": "2026-09-21T01-40-11-076Z-2778a1",
   "connection": "confirmed"
 }
